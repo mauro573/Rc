@@ -38,15 +38,7 @@
                     
                 </button>
                 
-                <div class="relative">
-                    <button id="languageToggle" class="language-toggle bg-gray-100 hover:bg-purple-600 hover:text-white text-gray-700 px-3 py-1 rounded-full text-sm flex items-center transition duration-300">
-                        <i class="fas fa-globe mr-1"></i> PT
-                    </button>
-                    <div id="languageDropdown" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg z-50">
-                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-purple-100">Português</a>
-                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-purple-100">English</a>
-                    </div>
-                </div>
+                
                 
                 <button id="mobileMenuButton" class="md:hidden text-gray-700">
                     <i class="fas fa-bars text-xl"></i>
@@ -67,7 +59,9 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-gradient text-white py-16 md:py-24">
+    
+
+    <section id="home" class="text-white py-16 md:py-24" style="background-image: linear-gradient(rgba(112, 35, 185, 0.671), rgba(112, 35, 185, 0.671)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center;">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-8 md:mb-0">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">RadioComercial: A Sua Voz, A Nossa Música</h1>
@@ -75,11 +69,9 @@
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                     <button class="bg-white text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-full font-bold transition duration-300 flex items-center justify-center">
                         <a href="#live" ><i class="fas fa-play mr-2"></i> Ouça Ao Vivo</a>
-                        
                     </button>
                     <button class="bg-transparent border-2 border-white hover:bg-white hover:text-purple-600 px-6 py-3 rounded-full font-bold transition duration-300 flex items-center justify-center">
                         <a href="#podcasts" > <i class="fas fa-podcast mr-2"></i> Explore Podcasts</a>
-                       
                     </button>
                 </div>
             </div>
@@ -110,15 +102,11 @@
             </div>
             
             <div class="flex items-center space-x-4">
-                <button id="prevButton" class="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center hover:bg-purple-700 transition duration-300">
-                    <i class="fas fa-step-backward"></i>
-                </button>
+              
                 <button id="playButton" class="w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center hover:bg-purple-700 transition duration-300">
                     <i class="fas fa-play" id="playIcon"></i>
                 </button>
-                <button id="nextButton" class="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center hover:bg-purple-700 transition duration-300">
-                    <i class="fas fa-step-forward"></i>
-                </button>
+                
                 
                 <div class="flex items-center ml-4">
                     <i class="fas fa-volume-up text-purple-600 mr-2"></i>
@@ -128,7 +116,10 @@
         </div>
         
         <!-- Elemento de áudio escondido -->
-        <audio id="audioElement" src="audio/Bad_Bunny_-_MIA_(feat._Drake).mp3"></audio>
+       <audio  id="audioElement"   preload="auto">
+  <source src="https://stream.zeno.fm/01e50f3vsf9uv" type="audio/mpeg">
+  Seu navegador não suporta o elemento de áudio.
+</audio>
     </div>
 </section>
 
@@ -324,40 +315,60 @@
             
             <div class="flex flex-col lg:flex-row gap-8">
                 <div class="lg:w-2/3">
-                    <div class="bg-purple-50 rounded-xl p-6 shadow-lg">
-                        <div class="flex items-center mb-6">
-                            <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-broadcast-tower text-purple-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-xl">RadioComercial Ao Vivo</h3>
-                                <p class="text-gray-600">Transmissão em directo</p>
-                            </div>
-                        </div>
-                        
-                         <div class="audio-player bg-white rounded-lg p-6 mb-6">
-                            <div class="flex flex-col md:flex-row items-center justify-between mb-6">
-                               
-                                
-                                <div class="flex items-center space-x-4">
-                                    <iframe src="https://zeno.fm/player/radio-comercialxpe6wf3vsf9uv" width="570" height="250" frameborder="0" scrolling="no"></iframe><a href="https://zeno.fm/" target="_blank" style="display: block; font-size: 0.9em; line-height: 10px;">A Zeno.FM Station</a>
-                                    <button class="w-10 h-10 rounded-full bg-purple-60 text-white flex items-center justify-center hover:bg-purple-700 transition duration-300">
-                                       
-                                    </button>
-                                    <button id="livePlayButton" class="w-12 h-12 rounded-full bg-purple-60 text-white flex items-center justify-center hover:bg-purple-700 transition duration-300">
-                                      
-                                    </button>
-                                    <button class="w-10 h-10 rounded-full bg-purple-60 text-white flex items-center justify-center hover:bg-purple-700 transition duration-300">
-                                        
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            
-                        </div>
-                        
-                        
-                    </div>
+                   <div class="bg-purple-50 rounded-xl p-6 shadow-lg">
+    <div class="flex items-center mb-6">
+        <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+            <i class="fas fa-broadcast-tower text-purple-600 text-2xl"></i>
+        </div>
+        <div>
+            <h3 class="font-bold text-xl">RadioComercial Ao Vivo</h3>
+            <p class="text-gray-600">Transmissão em directo</p>
+        </div>
+    </div>
+    
+    <div class="audio-player bg-white rounded-lg p-6 mb-6">
+        <div class="flex flex-col md:flex-row items-center justify-between mb-6">
+            <div class="flex items-center mb-4 md:mb-0">
+                <div class="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                    <i class="fas fa-music text-purple-600 text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold">A Tocar Agora</h3>
+                    <p class="text-gray-600 text-sm" id="nowPlaying">RadioComercial - Zeno.fm</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button id="livePlayButton" class="w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center hover:bg-purple-700 transition duration-300">
+                    <i class="fas fa-play" id="playIcon"></i>
+                </button>
+                
+                <div class="flex items-center ml-4">
+                    <i class="fas fa-volume-up text-purple-600 mr-2"></i>
+                    <input type="range" id="volumeControl" min="0" max="100" value="70" class="w-24 accent-purple-600">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="flex flex-wrap gap-3">
+        <button onclick="shareToTwitter()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300">
+            <i class="fab fa-twitter mr-2"></i> Partilhar no Twitter
+        </button>
+        <button onclick="shareToFacebook()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300">
+            <i class="fab fa-facebook-f mr-2"></i> Partilhar no Facebook
+        </button>
+        <button onclick="shareToWhatsApp()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300">
+            <i class="fab fa-whatsapp mr-2"></i> Partilhar no WhatsApp
+        </button>
+    </div>
+    
+    <!-- Elemento de áudio escondido -->
+    <audio id="audioElement" preload="auto">
+        <source src="https://stream.zeno.fm/01e50f3vsf9uv" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+</div>
                     
                     <div class="mt-8">
                         <h3 class="text-xl font-bold text-gray-800 mb-4">Programação de Hoje</h3>
