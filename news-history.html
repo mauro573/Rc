@@ -1,0 +1,252 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+    
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Notícias - RadioComercial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="stylee/style.css">
+</head>
+<body class="text-gray-900 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center">
+                        <strong><a href="index.html#home" class="block py-2 text-white">RC</a></strong>
+                    </div>
+                    <span class="ml-2 text-lg sm:text-xl font-bold text-purple-600">RadioComercial</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                <a href="index.html#home" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300 text-sm lg:text-base">Início</a>
+                <a href="index.html#live" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300 text-sm lg:text-base">Ao Vivo</a>
+                <a href="index.html#podcasts" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300 text-sm lg:text-base">Podcasts</a>
+                <a href="index.html#tribute" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300 text-sm lg:text-base">Homenagem</a>
+                <a href="index.html#events" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300 text-sm lg:text-base">Eventos</a>
+                <a href="index.html#about" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300 text-sm lg:text-base">Sobre</a>
+                <a href="index.html#contact" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300 text-sm lg:text-base">Contacto</a>
+                <a href="news-history.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300 text-sm lg:text-base">Notícias</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center transition duration-300 text-sm">
+                    <a href="index.html#live"><i class="fas fa-play mr-2"></i> Ouvir Agora</a>
+                </button>
+                <button id="mobileMenuButton" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="index.html#home" class="block py-2 text-gray-700 hover:text-purple-600 text-sm">Início</a>
+            <a href="index.html#live" class="block py-2 text-gray-700 hover:text-purple-600 text-sm">Ao Vivo</a>
+            <a href="index.html#podcasts" class="block py-2 text-gray-700 hover:text-purple-600 text-sm">Podcasts</a>
+            <a href="index.html#tribute" class="block py-2 text-gray-700 hover:text-purple-600 text-sm">Homenagem</a>
+            <a href="index.html#events" class="block py-2 text-gray-700 hover:text-purple-600 text-sm">Eventos</a>
+            <a href="index.html#about" class="block py-2 text-gray-700 hover:text-purple-600 text-sm">Sobre</a>
+            <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-purple-600 text-sm">Contacto</a>
+            <a href="news-history.html" class="block py-2 text-gray-700 hover:text-purple-600 text-sm">Notícias</a>
+        </div>
+    </nav>
+
+    <!-- News History Section -->
+    <section id="news" class="text-white py-12 sm:py-16 md:py-24" style="background: linear-gradient(135deg, #6c5097 0%, #675783 100%);">
+        <div class="container mx-auto px-4 sm:px-6 relative z-20">
+            <div class="text-center mb-8 sm:mb-12">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Histórico de Notícias</h1>
+                <p class="text-base sm:text-lg md:text-xl text-gray-200 max-w-xl sm:max-w-2xl mx-auto">Fique por dentro das últimas notícias sobre música, cultura e eventos em Angola.</p>
+                <div class="w-16 sm:w-20 h-1 bg-purple-600 mx-auto mt-4"></div>
+            </div>
+            <div id="newsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                <div class="news-card bg-white bg-opacity-10 backdrop-blur-lg rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition duration-300">
+                    <img src="img/noticia1.jpg" alt="noticia1" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Ameaça de Bomba</h3>
+                    <p class="text-gray-300 text-xs sm:text-sm mb-2">24 de Julho de 2025</p>
+                    <p class="text-gray-200 text-sm sm:text-base mb-4 line-clamp-3">Ameaça de Bomba obriga aterragem de emergencia no aeroporto de Lisboa </p>
+                    <a href="#read-more" class="text-purple-400 hover:text-purple-200 font-bold border-2 border-purple-400 hover:border-purple-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full inline-block text-sm transition duration-300">Leia Mais</a>
+                </div>
+                <div class="news-card bg-white bg-opacity-10 backdrop-blur-lg rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition duration-300">
+                    <img src="img/noticia6.jpg" alt="noti" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Timor-leste</h3>
+                    <p class="text-gray-300 text-xs sm:text-sm mb-2">25 de Julho de 2025</p>
+                    <p class="text-gray-200 text-sm sm:text-base mb-4 line-clamp-3">Timor-leste elimina malaria apos anos de luta</p>
+                    <a href="#read-more" class="text-purple-400 hover:text-purple-200 font-bold border-2 border-purple-400 hover:border-purple-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full inline-block text-sm transition duration-300">Leia Mais</a>
+                </div>
+                <div class="news-card bg-white bg-opacity-10 backdrop-blur-lg rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition duration-300">
+                    <img src="img/RadioComercial2.jpg" alt="Cultura Angolana" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Novo Podcast Sobre Cultura Angolana</h3>
+                    <p class="text-gray-300 text-xs sm:text-sm mb-2">16 de Julho de 2025</p>
+                    <p class="text-gray-200 text-sm sm:text-base mb-4 line-clamp-3">A RadioComercial lançou um novo episódio do podcast "Vozes da Cultura", explorando a influência do semba na diáspora angolana.</p>
+                    <a href="index.html#podcasts" class="text-purple-400 hover:text-purple-200 font-bold border-2 border-purple-400 hover:border-purple-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full inline-block text-sm transition duration-300">Ouça Agora</a>
+                </div>
+                <div class="news-card bg-white bg-opacity-10 backdrop-blur-lg rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition duration-300">
+                    <img src="img/noticia4.jpg" alt="noticia4" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">ANATA</h3>
+                    <p class="text-gray-300 text-xs sm:text-sm mb-2">24 de Julho de 2025</p>
+                    <p class="text-gray-200 text-sm sm:text-base mb-4 line-clamp-3">ANATA esclarece que não cancelou greve dos taxistas.</p>
+                    <a href="#read-more" class="text-purple-400 hover:text-purple-200 font-bold border-2 border-purple-400 hover:border-purple-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full inline-block text-sm transition duration-300">Leia Mais</a>
+                </div>
+            </div>
+            <div class="text-center mt-8 sm:mt-12">
+                <button id="loadMoreButton" class="bg-purple-600 hover:bg-purple-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-base transition duration-300">
+                    Carregar Mais Notícias
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 sm:py-12">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-4">RadioComercial</h3>
+                    <p class="text-gray-400 text-sm sm:text-base">A sua voz, a nossa música. Conectando Angola através da música e cultura desde 2020.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2 text-sm sm:text-base">
+                        <li><a href="index.html#home" class="text-gray-400 hover:text-white transition duration-300">Início</a></li>
+                        <li><a href="index.html#live" class="text-gray-400 hover:text-white transition duration-300">Ao Vivo</a></li>
+                        <li><a href="index.html#podcasts" class="text-gray-400 hover:text-white transition duration-300">Podcasts</a></li>
+                        <li><a href="index.html#tribute" class="text-gray-400 hover:text-white transition duration-300">Homenagem</a></li>
+                        <li><a href="index.html#events" class="text-gray-400 hover:text-white transition duration-300">Eventos</a></li>
+                        <li><a href="news-history.html" class="text-gray-400 hover:text-white transition duration-300">Notícias</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-4">Contactos</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm sm:text-base">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>Patriota-Benfica , Luanda</span>
+                        </li>
+                        <li class="flex items-start">
+                            <a href="tel:+244941156269">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <span>+244 941 156 269</span></a>
+                        </li>
+                        <li class="flex items-start">
+                            <a href="mailto:radiocomercial2020@gmail.com">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>RadioComercial2020@gmail</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-4">Horário</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm sm:text-base">
+                        <li>Segunda a Sexta: 6h - 00h</li>
+                        <li>Sábado e Domingo: 8h - 00h</li>
+                        <li>Feriados: Programação Especial</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm sm:text-base mb-4 sm:mb-0">© 2025 RadioComercial Angola. Todos os direitos reservados.</p>
+                <div class="flex space-x-4 sm:space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Termos de Serviço</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Política de Privacidade</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function () {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Load more news functionality
+        const additionalNews = [
+            {
+                image: "https://images.unsplash.com/photo-1533174072545-33a9b3763a42",
+                title: "Anselmo Ralph Anuncia Novo Álbum",
+                date: "14 de Julho de 2025",
+                description: "Anselmo Ralph revelou detalhes do seu próximo álbum, prometendo uma fusão de kizomba e R&B. A RadioComercial terá a estreia exclusiva!",
+                link: "#read-more"
+            },
+            {
+                image: "https://images.unsplash.com/photo-1506152983158-b4a74a01c721",
+                title: "Noite de Semba em Huambo",
+                date: "13 de Julho de 2025",
+                description: "A Noite de Semba em Huambo reuniu artistas locais e nacionais, celebrando a tradição musical angolana.",
+                link: "#read-more"
+            }
+        ];
+
+        let newsIndex = 0;
+
+        document.getElementById('loadMoreButton').addEventListener('click', function () {
+            const newsGrid = document.getElementById('newsGrid');
+            const newsToShow = additionalNews.slice(newsIndex, newsIndex + 2);
+
+            newsToShow.forEach(news => {
+                const newsCard = document.createElement('div');
+                newsCard.className = 'news-card bg-white bg-opacity-10 backdrop-blur-lg rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition duration-300';
+                newsCard.innerHTML = `
+                    <img src="${news.image}" alt="${news.title}" class="w-full h-32 sm:h-40 md:h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">${news.title}</h3>
+                    <p class="text-gray-300 text-xs sm:text-sm mb-2">${news.date}</p>
+                    <p class="text-gray-200 text-sm sm:text-base mb-4 line-clamp-3">${news.description}</p>
+                    <a href="${news.link}" class="text-purple-400 hover:text-purple-200 font-bold border-2 border-purple-400 hover:border-purple-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full inline-block text-sm transition duration-300">Leia Mais</a>
+                `;
+                newsGrid.appendChild(newsCard);
+            });
+
+            newsIndex += newsToShow.length;
+
+            // Hide button if no more news to load
+            if (newsIndex >= additionalNews.length) {
+                document.getElementById('loadMoreButton').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

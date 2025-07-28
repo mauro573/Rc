@@ -30,16 +30,13 @@
                 <a href="#events" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Eventos</a>
                 <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Sobre</a>
                 <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Contacto</a>
+                <a href="news-history.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Notícias</a>
             </div>
             
             <div class="flex items-center space-x-4">
-                <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full flex items-center transition duration-300">
-                    <a href="#live" ><i class="fas fa-play mr-2"></i> Ouvir Agora</a>
-                    
+                <button class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center transition duration-300 text-sm">
+                    <a href="index.html#live"><i class="fas fa-play mr-2"></i> Ouvir Agora</a>
                 </button>
-                
-                
-                
                 <button id="mobileMenuButton" class="md:hidden text-gray-700">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
@@ -55,37 +52,43 @@
             <a href="#events" class="block py-2 text-gray-700 hover:text-purple-600">Eventos</a>
             <a href="#about" class="block py-2 text-gray-700 hover:text-purple-600">Sobre</a>
             <a href="#contact" class="block py-2 text-gray-700 hover:text-purple-600">Contacto</a>
+            <a href="news-history.html" class="block py-2 text-gray-700 hover:text-purple-600">Notícias</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     
 
-    <section id="home" class="text-white py-16 md:py-24" style="background-image: linear-gradient(rgba(112, 35, 185, 0.671), rgba(112, 35, 185, 0.671)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center;">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-8 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">RadioComercial: A Sua Voz, A Nossa Música</h1>
-                <p class="text-xl mb-8">Sintonize a energia de Angola com música, podcasts e homenagens que conectam corações.</p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="bg-white text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-full font-bold transition duration-300 flex items-center justify-center">
-                        <a href="#live" ><i class="fas fa-play mr-2"></i> Ouça Ao Vivo</a>
-                    </button>
-                    <button class="bg-transparent border-2 border-white hover:bg-white hover:text-purple-600 px-6 py-3 rounded-full font-bold transition duration-300 flex items-center justify-center">
-                        <a href="#podcasts" > <i class="fas fa-podcast mr-2"></i> Explore Podcasts</a>
-                    </button>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative w-full max-w-md">
-                    <div class="absolute -top-8 -left-8 w-32 h-32 bg-yellow-400 rounded-full opacity-20"></div>
-                    <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-pink-500 rounded-full opacity-20"></div>
-                    <img src="img/rc azul rocho.png" 
-                         alt="DJ tocando música" 
-                         class="rounded-lg shadow-2xl w-full h-auto object-cover relative z-10">
-                </div>
+   <section id="home" class="text-white py-16 md:py-24 relative">
+    <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover z-0">
+        <source src="img/COMERCIAL VIDEO 2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-r from-[rgba(112,35,185,0.671)] to-[rgba(112,35,185,0.671)] z-10"></div>
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-20">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">RadioComercial: A Sua Voz, A Nossa Música</h1>
+            <p class="text-xl mb-8">Sintonize a energia de Angola com música, podcasts e homenagens que conectam corações.</p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <button class="bg-white text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-full font-bold transition duration-300 flex items-center justify-center">
+                    <a href="#live"><i class="fas fa-play mr-2"></i> Ouça Ao Vivo</a>
+                </button>
+                <button class="bg-transparent border-2 border-white hover:bg-white hover:text-purple-600 px-6 py-3 rounded-full font-bold transition duration-300 flex items-center justify-center">
+                    <a href="#podcasts"><i class="fas fa-podcast mr-2"></i> Explore Podcasts</a>
+                </button>
             </div>
         </div>
-    </section>
+        <div class="md:w-1/2 flex justify-center">
+            <div class="relative w-full max-w-md">
+                <div class="absolute -top-8 -left-8 w-32 h-32 bg-yellow-400 rounded-full opacity-20"></div>
+                <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-pink-500 rounded-full opacity-20"></div>
+                <img src="img/rc azul rocho.png" 
+                     alt="DJ tocando música" 
+                     class="rounded-lg shadow-2xl w-full h-auto object-cover relative z-10">
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Now Playing Section -->
     <section class="audio-player py-6 shadow-md">
@@ -145,7 +148,8 @@
                     <p class="text-gray-700 mb-6">Com mais de 30 álbuns lançados, Bonga é conhecido por canções como "Mona Ki Ngi Xica", "Sodade", e "Angola". Sua música é uma mistura de ritmos tradicionais angolanos com influências portuguesas e brasileiras, criando um som único que fala da experiência angolana.</p>
                     <div class="flex flex-wrap gap-4">
                         <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full flex items-center transition duration-300">
-                            <i class="fas fa-play mr-2"></i> Ouvir Músicas
+                           
+                           <i class="fas fa-play mr-2"></i> Ouvir Músicas
                         </button>
                         <button class="border border-purple-600 text-purple-600 hover:bg-purple-50 px-4 py-2 rounded-full flex items-center transition duration-300">
                             <i class="fas fa-book mr-2"></i> Biografia Completa
@@ -158,45 +162,45 @@
             </div>
             
             <div class="mt-12">
-                <h3 class="text-xl font-bold text-gray-800 mb-6">Homenagens Anteriores</h3>
+                <h3 class="text-xl font-bold text-gray-800 mb-6">Notícias</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="tribute-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-                        <img src="img/paulo flores.jpeg" 
+                        <img src="img/noticia1.jpg" 
                              alt="Paulo Flores" 
                              class="w-full h-40 object-cover">
                         <div class="p-4">
-                            <h4 class="font-bold text-purple-600">Paulo Flores</h4>
-                            <p class="text-gray-600 text-sm mt-1">O poeta do semba moderno</p>
+                            <h4 class="font-bold text-purple-600">Ameaça de Bomba</h4>
+                            <p class="text-gray-600 text-sm mt-1">ameaça de bomba obriga aterragem de emergencia no aeroporto de Lisboa</p>
                         </div>
                     </div>
                     
                     <div class="tribute-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-                        <img src="img/eva rap.jpeg" 
+                        <img src="img/noticia6.jpg" 
                              alt="Eva Rap Diva" 
                              class="w-full h-40 object-cover">
                         <div class="p-4">
-                            <h4 class="font-bold text-purple-600">Eva Rap Diva</h4>
-                            <p class="text-gray-600 text-sm mt-1">A rainha do rap angolano</p>
+                            <h4 class="font-bold text-purple-600">Malaria</h4>
+                            <p class="text-gray-600 text-sm mt-1">Timor-leste Elimina Malaria apos anos de luta</p>
                         </div>
                     </div>
                     
                     <div class="tribute-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-                        <img src="img/yuri da cunha.jpeg" 
+                        <img src="img/noticia5.jpg" 
                              alt="Yuri da Cunha" 
                              class="w-full h-40 object-cover">
                         <div class="p-4">
-                            <h4 class="font-bold text-purple-600">Yuri da Cunha</h4>
-                            <p class="text-gray-600 text-sm mt-1">O rei do kizomba</p>
+                            <h4 class="font-bold text-purple-600">João Lourenço</h4>
+                            <p class="text-gray-600 text-sm mt-1">João Lourenço dis que ficara com remorços se o seu sucessor não fizer igual ou melhor que ele.</p>
                         </div>
                     </div>
                     
                     <div class="tribute-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-                        <img src="img/Anselmo-Ralph.jpg" 
+                        <img src="img/noticia3.jpg" 
                              alt="Anselmo Ralph" 
                              class="w-full h-40 object-cover">
                         <div class="p-4">
-                            <h4 class="font-bold text-purple-600">Anselmo Ralph</h4>
-                            <p class="text-gray-600 text-sm mt-1">O cantor do amor</p>
+                            <h4 class="font-bold text-purple-600">ANATA</h4>
+                            <p class="text-gray-600 text-sm mt-1">ANATA esclarece que não cancelou greve dos taxistas</p>
                         </div>
                     </div>
                 </div>
@@ -205,104 +209,153 @@
     </section>
 
     <!-- Featured Podcasts -->
-    <section id="podcasts" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-purple-600 mb-2">Podcasts em Destaque</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Descubra as melhores conversas, histórias e discussões sobre música e cultura angolana.</p>
-                <div class="w-20 h-1 bg-purple-600 mx-auto mt-4"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="podcast-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
-                    <img src="img/sons de angola.jpg" 
-                         alt="Sons de Angola" 
-                         class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="bg-purple-100 text-purple-600 text-xs font-medium px-2.5 py-0.5 rounded">Música</span>
-                            <span class="text-gray-500 text-sm">12 Episódios</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Sons de Angola</h3>
-                        <p class="text-gray-600 mb-4">Explorando a riqueza musical angolana, desde o semba tradicional até os novos sons urbanos.</p>
-                        <div class="flex justify-between items-center">
-                            <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300">
-                                <i class="fas fa-play mr-2"></i> Ouvir Agora
-                            </button>
-                            <div class="flex space-x-2">
-                                <button class="text-gray-400 hover:text-purple-600">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                                <button class="text-gray-400 hover:text-purple-600">
-                                    <i class="fas fa-share-alt"></i>
-                                </button>
-                            </div>
-                        </div>
+   <section id="podcasts" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-purple-600 mb-2">Podcasts em Destaque</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Descubra as melhores conversas, histórias e discussões sobre música e cultura angolana.</p>
+            <div class="w-20 h-1 bg-purple-600 mx-auto mt-4"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="podcast-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                <video class="w-full h-48 object-cover cursor-pointer" poster="img/sons de angola.jpg">
+                    <source src="img/podcast1.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="bg-purple-100 text-purple-600 text-xs font-medium px-2.5 py-0.5 rounded">Música</span>
+                        <span class="text-gray-500 text-sm">12 Episódios</span>
                     </div>
-                </div>
-                
-                <div class="podcast-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
-                    <img src="img/vozes da cultura.jpg" 
-                         alt="Vozes da Cultura" 
-                         class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="bg-purple-100 text-purple-600 text-xs font-medium px-2.5 py-0.5 rounded">Cultura</span>
-                            <span class="text-gray-500 text-sm">8 Episódios</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Vozes da Cultura</h3>
-                        <p class="text-gray-600 mb-4">Conversas com artistas, escritores e criadores que estão a moldar a cena cultural angolana.</p>
-                        <div class="flex justify-between items-center">
-                            <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300">
-                                <i class="fas fa-play mr-2"></i> Ouvir Agora
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sons de Angola</h3>
+                    <p class="text-gray-600 mb-4">Explorando a riqueza musical angolana, desde o semba tradicional até os novos sons urbanos.</p>
+                    <div class="flex justify-between items-center">
+                        <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300"  onclick="openVideoModal('img/podcast1.mp4')">
+                            <i class="fas fa-play mr-2"></i> Ouvir Agora
+                        </button>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-400 hover:text-purple-600">
+                                <i class="far fa-heart"></i>
                             </button>
-                            <div class="flex space-x-2">
-                                <button class="text-gray-400 hover:text-purple-600">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                                <button class="text-gray-400 hover:text-purple-600">
-                                    <i class="fas fa-share-alt"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="podcast-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
-                    <img src="img/studio aberto.jpg" 
-                         alt="Estúdio Aberto" 
-                         class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="bg-purple-100 text-purple-600 text-xs font-medium px-2.5 py-0.5 rounded">Entrevistas</span>
-                            <span class="text-gray-500 text-sm">15 Episódios</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Estúdio Aberto</h3>
-                        <p class="text-gray-600 mb-4">Conversas intimas com as personalidades mais interessantes de Angola, da música ao desporto.</p>
-                        <div class="flex justify-between items-center">
-                            <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300">
-                                <i class="fas fa-play mr-2"></i> Ouvir Agora
+                            <button class="text-gray-400 hover:text-purple-600">
+                                <i class="fas fa-share-alt"></i>
                             </button>
-                            <div class="flex space-x-2">
-                                <button class="text-gray-400 hover:text-purple-600">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                                <button class="text-gray-400 hover:text-purple-600">
-                                    <i class="fas fa-share-alt"></i>
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center mt-12">
-                <button class="border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-6 py-3 rounded-full font-bold transition duration-300">
-                    Ver Todos os Podcasts
+            <div class="podcast-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                <video class="w-full h-48 object-cover cursor-pointer" poster="img/vozes da cultura.jpg" >
+                    <source src="img/podcast2.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="bg-purple-100 text-purple-600 text-xs font-medium px-2.5 py-0.5 rounded">Cultura</span>
+                        <span class="text-gray-500 text-sm">8 Episódios</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Vozes da Cultura</h3>
+                    <p class="text-gray-600 mb-4">Conversas com artistas, escritores e criadores que estão a moldar a cena cultural angolana.</p>
+                    <div class="flex justify-between items-center">
+                        <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300"onclick="openVideoModal('img/podcast2.mp4')" >
+                            <i class="fas fa-play mr-2"></i> Ouvir Agora
+                        </button>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-400 hover:text-purple-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="text-gray-400 hover:text-purple-600">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="podcast-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                <video class="w-full h-48 object-cover cursor-pointer" poster="img/studio aberto.jpg" >
+                    <source src="videos/studio_aberto.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="bg-purple-100 text-purple-600 text-xs font-medium px-2.5 py-0.5 rounded">Entrevistas</span>
+                        <span class="text-gray-500 text-sm">15 Episódios</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Estúdio Aberto</h3>
+                    <p class="text-gray-600 mb-4">Conversas íntimas com as personalidades mais interessantes de Angola, da música ao desporto.</p>
+                    <div class="flex justify-between items-center">
+                        <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300"onclick="openVideoModal('videos/studio_aberto.mp4')">
+                            <i class="fas fa-play mr-2"></i> Ouvir Agora
+                        </button>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-400 hover:text-purple-600">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="text-gray-400 hover:text-purple-600">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <button class="border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-6 py-3 rounded-full font-bold transition duration-300">
+                Ver Todos os Podcasts
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal for Video Playback -->
+    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50" onclick="closeVideoModal(event)">
+        <div class="relative bg-white rounded-lg max-w-4xl w-full" onclick="event.stopPropagation()">
+            <button onclick="closeVideoModal()" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <video id="modalVideo" class="w-full h-auto" controls autoplay>
+                <source id="modalVideoSource" src="" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+            <div class="p-4 text-center">
+                <button onclick="closeVideoModal()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm transition duration-300">
+                    Fechar
                 </button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<script>
+    function openVideoModal(videoSrc) {
+        const modal = document.getElementById('videoModal');
+        const video = document.getElementById('modalVideo');
+        const videoSource = document.getElementById('modalVideoSource');
+        videoSource.src = videoSrc;
+        video.load();
+        modal.classList.remove('hidden');
+        video.play();
+    }
+
+    function closeVideoModal(event) {
+        if (event && event.target.id === 'videoModal') {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            video.pause();
+            video.currentTime = 0;
+            modal.classList.add('hidden');
+        } else if (!event) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            video.pause();
+            video.currentTime = 0;
+            modal.classList.add('hidden');
+        }
+    }
+</script>
 
     <!-- Live Stream Section -->
     <section id="live" class="py-16 bg-white">
@@ -641,86 +694,54 @@
                     <p class="text-gray-700">Hoje, com estúdios em Luanda, Benguela e Huambo, alcançamos milhões de ouvintes em todo o país e na diáspora angolana.</p>
                 </div>
                 <div class="lg:w-1/2">
-                    <img src="img/estudio comercial4.jpg" 
+                    <img src="img/RadioComercial2.jpg" 
                          alt="Estúdio da RadioComercial" 
-                         class="rounded-lg shadow-xl w-full h-auto">
+                         class="rounded-lg shadow-xl w-full h-auto" style="height: 350px;">
                 </div>
             </div>
             
-            <div class="flex flex-col lg:flex-row items-center mb-16">
-                <div class="lg:w-1/2 order-2 lg:order-1 lg:pr-12">
-                    <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
-                         alt="Equipa da RadioComercial" 
-                         class="rounded-lg shadow-xl w-full h-auto">
-                </div>
-                <div class="lg:w-1/2 order-1 lg:order-2 mb-8 lg:mb-0">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">A Nossa Missão</h3>
-                    <p class="text-gray-700 mb-4">"Conectar Angola através da música, histórias e vozes que inspiram."</p>
-                    <p class="text-gray-700 mb-4">Na RadioComercial, acreditamos no poder da música e da comunicação para unir pessoas e celebrar a riqueza cultural angolana. Estamos comprometidos em:</p>
-                    <ul class="text-gray-700 space-y-2 mb-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-purple-600 mr-2 mt-1"></i>
-                            <span>Promover a música e artistas angolanos</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-purple-600 mr-2 mt-1"></i>
-                            <span>Valorizar a diversidade cultural de Angola</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-purple-600 mr-2 mt-1"></i>
-                            <span>Fornecer conteúdos relevantes e de qualidade</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-purple-600 mr-2 mt-1"></i>
-                            <span>Ser uma plataforma para vozes angolanas</span>
-                        </li>
-                    </ul>
-                    <p class="text-gray-700">A nossa programação reflecte esta missão, com uma mistura de música, entrevistas, debates e conteúdos culturais que celebram a identidade angolana.</p>
-                </div>
+           <div class="text-center">
+    <h3 class="text-2xl font-bold text-gray-800 mb-6">A Nossa Equipa</h3>
+    <p class="text-gray-700 max-w-3xl mx-auto mb-8">Por detrás da RadioComercial está uma equipa dedicada de profissionais apaixonados por música e comunicação. Dos apresentadores aos técnicos, todos partilhamos o mesmo compromisso: trazer o melhor da música e cultura angolana para os nossos ouvintes.</p>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Foto de Ana Paula" class="w-full h-full object-cover">
             </div>
-            
-            <div class="text-center">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6">A Nossa Equipa</h3>
-                <p class="text-gray-700 max-w-3xl mx-auto mb-8">Por detrás da RadioComercial está uma equipa dedicada de profissionais apaixonados por música e comunicação. Dos apresentadores aos técnicos, todos partilhamos o mesmo compromisso: trazer o melhor da música e cultura angolana para os nossos ouvintes.</p>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                        <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-user text-purple-600 text-3xl"></i>
-                        </div>
-                        <h4 class="font-bold text-lg text-gray-800 mb-1">Ana Paula</h4>
-                        <p class="text-purple-600 text-sm mb-2">Apresentadora</p>
-                        <p class="text-gray-600 text-sm">Voz do programa "Drive Time" e especialista em kizomba.</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                        <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-user text-purple-600 text-3xl"></i>
-                        </div>
-                        <h4 class="font-bold text-lg text-gray-800 mb-1">Pinto Farias</h4>
-                        <p class="text-purple-600 text-sm mb-2">DJ e Produtor</p>
-                        <p class="text-gray-600 text-sm">Responsável pela "Manhã Musical" e pelos mixes especiais.</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                        <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-user text-purple-600 text-3xl"></i>
-                        </div>
-                        <h4 class="font-bold text-lg text-gray-800 mb-1">Carlos Manuel</h4>
-                        <p class="text-purple-600 text-sm mb-2">Director de Programação</p>
-                        <p class="text-gray-600 text-sm">O arquitecto por detrás da nossa programação diversificada.</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                        <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-user text-purple-600 text-3xl"></i>
-                        </div>
-                        <h4 class="font-bold text-lg text-gray-800 mb-1">Maria Luísa</h4>
-                        <p class="text-purple-600 text-sm mb-2">Repórter Cultural</p>
-                        <p class="text-gray-600 text-sm">Leva-nos aos bastidores da cena cultural angolana.</p>
-                    </div>
-                </div>
+            <h4 class="font-bold text-lg text-gray-800 mb-1">Ana Paula</h4>
+            <p class="text-purple-600 text-sm mb-2">Apresentadora</p>
+            <p class="text-gray-600 text-sm">Voz do programa "Drive Time" e especialista em kizomba.</p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Foto de Pinto Farias" class="w-full h-full object-cover">
             </div>
+            <h4 class="font-bold text-lg text-gray-800 mb-1">Pinto Farias</h4>
+            <p class="text-purple-600 text-sm mb-2">DJ e Produtor</p>
+            <p class="text-gray-600 text-sm">Responsável pela "Manhã Musical" e pelos mixes especiais.</p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Foto de Carlos Manuel" class="w-full h-full object-cover">
+            </div>
+            <h4 class="font-bold text-lg text-gray-800 mb-1">Carlos Manuel</h4>
+            <p class="text-purple-600 text-sm mb-2">Director de Programação</p>
+            <p class="text-gray-600 text-sm">O arquitecto por detrás da nossa programação diversificada.</p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="Foto de Maria Luísa" class="w-full h-full object-cover">
+            </div>
+            <h4 class="font-bold text-lg text-gray-800 mb-1">Maria Luísa</h4>
+            <p class="text-purple-600 text-sm mb-2">Repórter Cultural</p>
+            <p class="text-gray-600 text-sm">Leva-nos aos bastidores da cena cultural angolana.</p>
+        </div>
+    </div>
+</div>
         </div>
     </section>
 
@@ -880,12 +901,16 @@
                             <span>Avenida 4 de Fevereiro, 123, Luanda</span>
                         </li>
                         <li class="flex items-start">
+                            <a href="tel:+244941156269">
                             <i class="fas fa-phone-alt mt-1 mr-2"></i>
                             <span>+244 923 456 789</span>
+                            </a>
                         </li>
                         <li class="flex items-start">
+                            <a href="mailto:radiocomerial2020@gmail.com">
                             <i class="fas fa-envelope mt-1 mr-2"></i>
-                            <span>geral@radiocomercial.ao</span>
+                            <span>RadioComercial2020.@gmail</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
