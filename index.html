@@ -6,53 +6,58 @@
     <title>RadioComercial - A Sua Voz, A Nossa Música</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js"></script>
+    <script src="script.js/chat.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="stylee/style.css">
+    <!-- Firebase (versão compatível) -->
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
 </head>
-<body class="text-gray-900">
+<body class="bg-gray-900 text-gray-100">
+
     <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="bg-gray-800 shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-4">
                 <a href="#" class="flex items-center">
                     <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center">
-                   <STRong><a href="#home" class="block py-2 text-gray-700 " style="color: white;">RC</a></STRong>
+                   <STRong><a href="#home" class="block py-2 text-gray-300 " style="color: white;">RC</a></STRong>
                     </div>
                     <span class="ml-2 text-xl font-bold text-purple-600">RadioComercial</span>
                 </a>
             </div>
             
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Início</a>
-                <a href="#live" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Ao Vivo</a>
-                <a href="#podcasts" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Podcasts</a>
-                <a href="#tribute" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Homenagem</a>
-                <a href="#events" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Eventos</a>
-                <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Sobre</a>
-                <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Contacto</a>
-                <a href="news-history.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition duration-300">Notícias</a>
+           <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-gray-300 hover:text-purple-400 font-medium transition duration-300">Início</a>
+                <a href="#live" class="nav-link text-gray-300 hover:text-purple-400 font-medium transition duration-300">Ao Vivo</a>
+                <a href="#podcasts" class="nav-link text-gray-300 hover:text-purple-400 font-medium transition duration-300">Podcasts</a>
+                <a href="#tribute" class="nav-link text-gray-300 hover:text-purple-400 font-medium transition duration-300">Homenagem</a>
+                <a href="#events" class="nav-link text-gray-300 hover:text-purple-400 font-medium transition duration-300">Eventos</a>
+                <a href="#about" class="nav-link text-gray-300 hover:text-purple-400 font-medium transition duration-300">Sobre</a>
+                <a href="#contact" class="nav-link text-gray-300 hover:text-purple-400 font-medium transition duration-300">Contacto</a>
+                <a href="news-history.html" class="nav-link text-gray-300 hover:text-purple-400 font-medium transition duration-300">Notícias</a>
             </div>
             
             <div class="flex items-center space-x-4">
                 <button class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center transition duration-300 text-sm">
                     <a href="index.html#live"><i class="fas fa-play mr-2"></i> Ouvir Agora</a>
                 </button>
-                <button id="mobileMenuButton" class="md:hidden text-gray-700">
+                <button id="mobileMenuButton" class="md:hidden text-gray-300">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
         
         <!-- Mobile menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
-            <a href="#home" class="block py-2 text-gray-700 hover:text-purple-600">Início</a>
-            <a href="#live" class="block py-2 text-gray-700 hover:text-purple-600">Ao Vivo</a>
-            <a href="#podcasts" class="block py-2 text-gray-700 hover:text-purple-600">Podcasts</a>
-            <a href="#tribute" class="block py-2 text-gray-700 hover:text-purple-600">Homenagem</a>
-            <a href="#events" class="block py-2 text-gray-700 hover:text-purple-600">Eventos</a>
-            <a href="#about" class="block py-2 text-gray-700 hover:text-purple-600">Sobre</a>
-            <a href="#contact" class="block py-2 text-gray-700 hover:text-purple-600">Contacto</a>
-            <a href="news-history.html" class="block py-2 text-gray-700 hover:text-purple-600">Notícias</a>
+       <div id="mobileMenu" class="hidden md:hidden bg-gray-800 py-2 px-4 shadow-lg">
+            <a href="#home" class="block py-2 text-gray-300 hover:text-purple-400">Início</a>
+            <a href="#live" class="block py-2 text-gray-300 hover:text-purple-400">Ao Vivo</a>
+            <a href="#podcasts"class="block py-2 text-gray-300 hover:text-purple-400">Podcasts</a>
+            <a href="#tribute" class="block py-2 text-gray-300 hover:text-purple-400">Homenagem</a>
+            <a href="#events" class="block py-2 text-gray-300 hover:text-purple-400">Eventos</a>
+            <a href="#about" class="block py-2 text-gray-300 hover:text-purple-400">Sobre</a>
+            <a href="#contact" class="block py-2 text-gray-300 hover:text-purple-400">Contacto</a>
+            <a href="news-history.html" class="block py-2 text-gray-300 hover:text-purple-400">Notícias</a>
         </div>
     </nav>
 
@@ -64,27 +69,18 @@
         <source src="img/COMERCIAL VIDEO 2.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <div class="absolute inset-0 bg-gradient-to-r from-[rgba(112,35,185,0.671)] to-[rgba(112,35,185,0.671)] z-10"></div>
+    <div class="absolute inset-0 bg-[rgba(112,35,185,0.5)] z-10"></div>
     <div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-20">
         <div class="md:w-1/2 mb-8 md:mb-0">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">RadioComercial: A Sua Voz, A Nossa Música</h1>
             <p class="text-xl mb-8">Sintonize a energia de Angola com música, podcasts e homenagens que conectam corações.</p>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <button class="bg-white text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-full font-bold transition duration-300 flex items-center justify-center">
+                <button class="bg-gray-700 text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-full font-bold transition duration-300 flex items-center justify-center">
                     <a href="#live"><i class="fas fa-play mr-2"></i> Ouça Ao Vivo</a>
                 </button>
                 <button class="bg-transparent border-2 border-white hover:bg-white hover:text-purple-600 px-6 py-3 rounded-full font-bold transition duration-300 flex items-center justify-center">
                     <a href="#podcasts"><i class="fas fa-podcast mr-2"></i> Explore Podcasts</a>
                 </button>
-            </div>
-        </div>
-        <div class="md:w-1/2 flex justify-center">
-            <div class="relative w-full max-w-md">
-                <div class="absolute -top-8 -left-8 w-32 h-32 bg-yellow-400 rounded-full opacity-20"></div>
-                <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-pink-500 rounded-full opacity-20"></div>
-                <img src="img/rc azul rocho.png" 
-                     alt="DJ tocando música" 
-                     class="rounded-lg shadow-2xl w-full h-auto object-cover relative z-10">
             </div>
         </div>
     </div>
@@ -99,8 +95,8 @@
                     <i class="fas fa-music text-purple-600 text-2xl"></i>
                 </div>
                 <div>
-                    <h3 class="font-bold text-lg">A Tocar Agora</h3>
-                    <p class="text-gray-600" id="nowPlaying">"Mona Ki Ngi Xica" - Bonga</p>
+                    <h3 class="font-bold text-lg text-gray-800">A Tocar Agora</h3>
+                    <p class="text-gray-400" id="nowPlaying">Radio-Comercial</p>
                 </div>
             </div>
             
@@ -129,14 +125,14 @@
 <script src="script.js/audio.js"></script>
 
     <!-- Weekly Tribute Section -->
-    <section id="tribute" class="py-16 bg-white">
+    <section id="tribute" class="py-16 bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-purple-600 mb-2">Homenagem da Semana</h2>
                 <div class="w-20 h-1 bg-purple-600 mx-auto"></div>
             </div>
             
-            <div class="flex flex-col lg:flex-row items-center bg-purple-50 rounded-xl overflow-hidden shadow-lg">
+            <div class="flex flex-col lg:flex-row items-center bg-gray-700 rounded-xl overflow-hidden shadow-lg">
                 <div class="lg:w-1/3">
                     <img src="img/bonga1.jpg" 
                          alt="Bonga" 
@@ -144,8 +140,8 @@
                 </div>
                 <div class="lg:w-2/3 p-8">
                     <h3 class="text-2xl font-bold text-purple-600 mb-4">Bonga</h3>
-                    <p class="text-gray-700 mb-4">José Adelino Barceló de Carvalho, conhecido artisticamente como Bonga, é um cantor e compositor angolano. Nascido em 1943, Bonga é uma das vozes mais reconhecidas da música africana, tendo levado o semba e outros ritmos angolanos para o mundo.</p>
-                    <p class="text-gray-700 mb-6">Com mais de 30 álbuns lançados, Bonga é conhecido por canções como "Mona Ki Ngi Xica", "Sodade", e "Angola". Sua música é uma mistura de ritmos tradicionais angolanos com influências portuguesas e brasileiras, criando um som único que fala da experiência angolana.</p>
+                    <p class="text-gray-300 mb-4">José Adelino Barceló de Carvalho, conhecido artisticamente como Bonga, é um cantor e compositor angolano. Nascido em 1943, Bonga é uma das vozes mais reconhecidas da música africana, tendo levado o semba e outros ritmos angolanos para o mundo.</p>
+                    <p class="text-gray-300 mb-6">Com mais de 30 álbuns lançados, Bonga é conhecido por canções como "Mona Ki Ngi Xica", "Sodade", e "Angola". Sua música é uma mistura de ritmos tradicionais angolanos com influências portuguesas e brasileiras, criando um som único que fala da experiência angolana.</p>
                     <div class="flex flex-wrap gap-4">
                         <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full flex items-center transition duration-300">
                            
@@ -162,63 +158,95 @@
             </div>
             
             <div class="mt-12">
-                <h3 class="text-xl font-bold text-gray-800 mb-6">Notícias</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="tribute-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-                        <img src="img/noticia1.jpg" 
-                             alt="Paulo Flores" 
-                             class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h4 class="font-bold text-purple-600">Ameaça de Bomba</h4>
-                            <p class="text-gray-600 text-sm mt-1">ameaça de bomba obriga aterragem de emergencia no aeroporto de Lisboa</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tribute-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-                        <img src="img/noticia6.jpg" 
-                             alt="Eva Rap Diva" 
-                             class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h4 class="font-bold text-purple-600">Malaria</h4>
-                            <p class="text-gray-600 text-sm mt-1">Timor-leste Elimina Malaria apos anos de luta</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tribute-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-                        <img src="img/noticia5.jpg" 
-                             alt="Yuri da Cunha" 
-                             class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h4 class="font-bold text-purple-600">João Lourenço</h4>
-                            <p class="text-gray-600 text-sm mt-1">João Lourenço dis que ficara com remorços se o seu sucessor não fizer igual ou melhor que ele.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tribute-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-                        <img src="img/noticia3.jpg" 
-                             alt="Anselmo Ralph" 
-                             class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h4 class="font-bold text-purple-600">ANATA</h4>
-                            <p class="text-gray-600 text-sm mt-1">ANATA esclarece que não cancelou greve dos taxistas</p>
-                        </div>
-                    </div>
-                </div>
+    <h3 class="text-2xl font-bold text-gray-100 mb-8">Notícias</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Notícia 1 -->
+        <div class="group relative h-72 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
+            <img src="img/noticia1.jpg" alt="Ameaça de Bomba" 
+                 class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent"></div>
+            
+            <div class="absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                <span class="inline-block px-3 py-1 mb-2 text-xs font-semibold text-purple-300 bg-gray-800/80 rounded-full">
+                    Última Hora
+                </span>
+                <h4 class="font-bold text-xl text-white mb-2">Ameaça de Bomba</h4>
+                <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Ameaça de bomba obriga aterragem de emergência no aeroporto de Lisboa
+                </p>
             </div>
+        </div>
+        
+        <!-- Notícia 2 -->
+        <div class="group relative h-72 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
+            <img src="img/noticia6.jpg" alt="Malária" 
+                 class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent"></div>
+            
+            <div class="absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                <span class="inline-block px-3 py-1 mb-2 text-xs font-semibold text-purple-300 bg-gray-800/80 rounded-full">
+                    Saúde
+                </span>
+                <h4 class="font-bold text-xl text-white mb-2">Malária</h4>
+                <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Timor-Leste elimina malária após anos de luta
+                </p>
+            </div>
+        </div>
+        
+        <!-- Notícia 3 -->
+        <div class="group relative h-72 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
+            <img src="img/noticia5.jpg" alt="João Lourenço" 
+                 class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent"></div>
+            
+            <div class="absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                <span class="inline-block px-3 py-1 mb-2 text-xs font-semibold text-purple-300 bg-gray-800/80 rounded-full">
+                    Política
+                </span>
+                <h4 class="font-bold text-xl text-white mb-2">João Lourenço</h4>
+                <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    João Lourenço diz que ficará com remorsos se seu sucessor não fizer igual ou melhor que ele
+                </p>
+            </div>
+        </div>
+        
+        <!-- Notícia 4 -->
+        <div class="group relative h-72 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
+            <img src="img/noticia3.jpg" alt="ANATA" 
+                 class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent"></div>
+            
+            <div class="absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                <span class="inline-block px-3 py-1 mb-2 text-xs font-semibold text-purple-300 bg-gray-800/80 rounded-full">
+                    Transportes
+                </span>
+                <h4 class="font-bold text-xl text-white mb-2">ANATA</h4>
+                <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    ANATA esclarece que não cancelou greve dos taxistas
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
         </div>
     </section>
 
     <!-- Featured Podcasts -->
-   <section id="podcasts" class="py-16 bg-gray-50">
+   <section id="podcasts" class="py-16 bg-gray-800">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-purple-600 mb-2">Podcasts em Destaque</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Descubra as melhores conversas, histórias e discussões sobre música e cultura angolana.</p>
+            <p class="text-gray-400 max-w-2xl mx-auto">Descubra as melhores conversas, histórias e discussões sobre música e cultura angolana.</p>
             <div class="w-20 h-1 bg-purple-600 mx-auto mt-4"></div>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="podcast-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+           <div class="podcast-card bg-gray-700 rounded-xl overflow-hidden shadow-md transition duration-300">
                 <video class="w-full h-48 object-cover cursor-pointer" poster="img/sons de angola.jpg">
                     <source src="img/podcast1.mp4" type="video/mp4">
                     Seu navegador não suporta o elemento de vídeo.
@@ -228,8 +256,8 @@
                         <span class="bg-purple-100 text-purple-600 text-xs font-medium px-2.5 py-0.5 rounded">Música</span>
                         <span class="text-gray-500 text-sm">12 Episódios</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sons de Angola</h3>
-                    <p class="text-gray-600 mb-4">Explorando a riqueza musical angolana, desde o semba tradicional até os novos sons urbanos.</p>
+                    <h3 class="text-xl font-bold text-gray-200 mb-2">Sons de Angola</h3>
+                    <p class="text-gray-400 mb-4">Explorando a riqueza musical angolana, desde o semba tradicional até os novos sons urbanos.</p>
                     <div class="flex justify-between items-center">
                         <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300"  onclick="openVideoModal('img/podcast1.mp4')">
                             <i class="fas fa-play mr-2"></i> Ouvir Agora
@@ -246,7 +274,7 @@
                 </div>
             </div>
             
-            <div class="podcast-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+            <div class="podcast-card bg-gray-700 rounded-xl overflow-hidden shadow-md transition duration-300">
                 <video class="w-full h-48 object-cover cursor-pointer" poster="img/vozes da cultura.jpg" >
                     <source src="img/podcast2.mp4" type="video/mp4">
                     Seu navegador não suporta o elemento de vídeo.
@@ -256,8 +284,8 @@
                         <span class="bg-purple-100 text-purple-600 text-xs font-medium px-2.5 py-0.5 rounded">Cultura</span>
                         <span class="text-gray-500 text-sm">8 Episódios</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Vozes da Cultura</h3>
-                    <p class="text-gray-600 mb-4">Conversas com artistas, escritores e criadores que estão a moldar a cena cultural angolana.</p>
+                    <h3 class="text-xl font-bold text-gray-200 mb-2">Vozes da Cultura</h3>
+                    <p class="text-gray-400 mb-4">Conversas com artistas, escritores e criadores que estão a moldar a cena cultural angolana.</p>
                     <div class="flex justify-between items-center">
                         <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300"onclick="openVideoModal('img/podcast2.mp4')" >
                             <i class="fas fa-play mr-2"></i> Ouvir Agora
@@ -274,7 +302,7 @@
                 </div>
             </div>
             
-            <div class="podcast-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+            <div class="podcast-card bg-gray-700 rounded-xl overflow-hidden shadow-md transition duration-300">
                 <video class="w-full h-48 object-cover cursor-pointer" poster="img/studio aberto.jpg" >
                     <source src="videos/studio_aberto.mp4" type="video/mp4">
                     Seu navegador não suporta o elemento de vídeo.
@@ -284,8 +312,8 @@
                         <span class="bg-purple-100 text-purple-600 text-xs font-medium px-2.5 py-0.5 rounded">Entrevistas</span>
                         <span class="text-gray-500 text-sm">15 Episódios</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Estúdio Aberto</h3>
-                    <p class="text-gray-600 mb-4">Conversas íntimas com as personalidades mais interessantes de Angola, da música ao desporto.</p>
+                    <h3 class="text-xl font-bold text-gray-200 mb-2">Estúdio Aberto</h3>
+                    <p class="text-gray-400 mb-4">Conversas íntimas com as personalidades mais interessantes de Angola, da música ao desporto.</p>
                     <div class="flex justify-between items-center">
                         <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300"onclick="openVideoModal('videos/studio_aberto.mp4')">
                             <i class="fas fa-play mr-2"></i> Ouvir Agora
@@ -312,8 +340,8 @@
 
     <!-- Modal for Video Playback -->
     <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50" onclick="closeVideoModal(event)">
-        <div class="relative bg-white rounded-lg max-w-4xl w-full" onclick="event.stopPropagation()">
-            <button onclick="closeVideoModal()" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800">
+        <div class="relative bg-gray-800 rounded-lg max-w-4xl w-full" onclick="event.stopPropagation()">
+            <button onclick="closeVideoModal()" class="absolute top-2 right-2 text-gray-400 hover:text-gray-200">
                 <i class="fas fa-times text-2xl"></i>
             </button>
             <video id="modalVideo" class="w-full h-auto" controls autoplay>
@@ -358,36 +386,36 @@
 </script>
 
     <!-- Live Stream Section -->
-    <section id="live" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
+    <section id="live" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-4 ">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-purple-600 mb-2">Ouça RadioComercial Ao Vivo</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Sintonize a nossa programação 24/7 com a melhor música e conteúdos angolanos.</p>
+                <p class="text-gray-400 max-w-2xl mx-auto">Sintonize a nossa programação 24/7 com a melhor música e conteúdos angolanos.</p>
                 <div class="w-20 h-1 bg-purple-600 mx-auto mt-4"></div>
             </div>
             
-            <div class="flex flex-col lg:flex-row gap-8">
-                <div class="lg:w-2/3">
-                   <div class="bg-purple-50 rounded-xl p-6 shadow-lg">
-    <div class="flex items-center mb-6">
+            <div class="flex flex-col lg:flex-row gap-8 ">
+                <div class="lg:w-2/3 ">
+                   <div class="bg-purple-50 rounded-xl p-6 shadow-lg ">
+    <div class="flex items-center mb-6 ">
         <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
             <i class="fas fa-broadcast-tower text-purple-600 text-2xl"></i>
         </div>
         <div>
             <h3 class="font-bold text-xl">RadioComercial Ao Vivo</h3>
-            <p class="text-gray-600">Transmissão em directo</p>
+            <p class="text-gray-400">Transmissão em directo</p>
         </div>
     </div>
     
-    <div class="audio-player bg-white rounded-lg p-6 mb-6">
-        <div class="flex flex-col md:flex-row items-center justify-between mb-6">
-            <div class="flex items-center mb-4 md:mb-0">
+    <div class="audio-player bg-gray-700 rounded-lg p-6 mb-6 ">
+        <div class="flex flex-col md:flex-row items-center justify-between mb-6 ">
+            <div class="flex items-center mb-4 md:mb-0 ">
                 <div class="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
                     <i class="fas fa-music text-purple-600 text-xl"></i>
                 </div>
                 <div>
-                    <h3 class="font-bold">A Tocar Agora</h3>
-                    <p class="text-gray-600 text-sm" id="nowPlaying">RadioComercial - Zeno.fm</p>
+                    <h3 class="font-bold text-gray-800">A Tocar Agora</h3>
+                    <p class="text-gray-400 text-sm" id="nowPlaying">RadioComercial - Zeno.fm</p>
                 </div>
             </div>
             
@@ -424,39 +452,39 @@
 </div>
                     
                     <div class="mt-8">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Programação de Hoje</h3>
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <h3 class="text-xl font-bold text-gray-200 mb-4">Programação de Hoje</h3>
+                        <div class="bg-gray-700 rounded-lg shadow-md overflow-hidden">
                             <div class="grid grid-cols-12 bg-purple-600 text-white font-bold text-sm">
                                 <div class="col-span-3 p-3">Hora</div>
                                 <div class="col-span-9 p-3">Programa</div>
                             </div>
                             
-                            <div class="grid grid-cols-12 border-b border-gray-200 hover:bg-purple-50">
+                            <div class="grid grid-cols-12 border-b border-gray-600 hover:bg-gray-600">
                                 <div class="col-span-3 p-3 font-medium">06:00 - 09:00</div>
                                 <div class="col-span-9 p-3">Manhã Musical com DJ Kenzu</div>
                             </div>
                             
-                            <div class="grid grid-cols-12 border-b border-gray-200 hover:bg-purple-50">
+                            <div class="grid grid-cols-12 border-b border-gray-600 hover:bg-gray-600">
                                 <div class="col-span-3 p-3 font-medium">09:00 - 12:00</div>
                                 <div class="col-span-9 p-3">As Manhãs da Comercial</div>
                             </div>
                             
-                            <div class="grid grid-cols-12 border-b border-gray-200 hover:bg-purple-50">
+                            <div class="grid grid-cols-12 border-b border-gray-600 hover:bg-gray-600">
                                 <div class="col-span-3 p-3 font-medium">12:00 - 14:00</div>
                                 <div class="col-span-9 p-3">Almoço com Semba</div>
                             </div>
                             
-                            <div class="grid grid-cols-12 border-b border-gray-200 hover:bg-purple-50">
+                            <div class="grid grid-cols-12 border-b border-gray-600 hover:bg-gray-600">
                                 <div class="col-span-3 p-3 font-medium">14:00 - 17:00</div>
                                 <div class="col-span-9 p-3">Tarde Cultural</div>
                             </div>
                             
-                            <div class="grid grid-cols-12 border-b border-gray-200 hover:bg-purple-50">
+                            <div class="grid grid-cols-12 border-b border-gray-600 hover:bg-gray-600">
                                 <div class="col-span-3 p-3 font-medium">17:00 - 19:00</div>
                                 <div class="col-span-9 p-3">Drive Time com Ana Paula</div>
                             </div>
                             
-                            <div class="grid grid-cols-12 hover:bg-purple-50">
+                            <div class="grid grid-cols-12 hover:bg-gray-600">
                                 <div class="col-span-3 p-3 font-medium">19:00 - 00:00</div>
                                 <div class="col-span-9 p-3">Noite de Kizomba</div>
                             </div>
@@ -465,82 +493,39 @@
                 </div>
                 
                 <div class="lg:w-1/3">
-                    <div class="bg-purple-50 rounded-xl p-6 shadow-lg h-full">
-                        <h3 class="text-xl font-bold text-purple-600 mb-4">Chat Ao Vivo</h3>
-                        
-                        <div id="chatMessages" class="mb-4 h-96 overflow-y-auto">
-                            <div class="chat-message mb-3">
-                                <div class="flex items-start">
-                                    <div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center mr-2">
-                                        <i class="fas fa-user text-purple-600"></i>
-                                    </div>
-                                    <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
-                                        <p class="text-sm">Alguém sabe o nome desta música? É incrível!</p>
-                                        <p class="text-xs text-gray-500 mt-1">Maria - 10:23</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="chat-message mb-3">
-                                <div class="flex items-start">
-                                    <div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center mr-2">
-                                        <i class="fas fa-user text-purple-600"></i>
-                                    </div>
-                                    <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
-                                        <p class="text-sm">É "Mona Ki Ngi Xica" do Bonga!</p>
-                                        <p class="text-xs text-gray-500 mt-1">Carlos - 10:24</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="chat-message mb-3">
-                                <div class="flex items-start">
-                                    <div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center mr-2">
-                                        <i class="fas fa-user text-purple-600"></i>
-                                    </div>
-                                    <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
-                                        <p class="text-sm">Adoro esta homenagem ao Bonga esta semana!</p>
-                                        <p class="text-xs text-gray-500 mt-1">Luísa - 10:25</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="chat-message mb-3">
-                                <div class="flex items-start">
-                                    <div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center mr-2">
-                                        <i class="fas fa-user text-purple-600"></i>
-                                    </div>
-                                    <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
-                                        <p class="text-sm">Grande Radio muito fx</p>
-                                        <p class="text-xs text-gray-500 mt-1">Zé - 10:26</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="chat-message mb-3">
-                                <div class="flex items-start">
-                                    <div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center mr-2">
-                                        <i class="fas fa-user text-purple-600"></i>
-                                    </div>
-                                    <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
-                                        <p class="text-sm">Eu vou! Mal posso esperar!</p>
-                                        <p class="text-xs text-gray-500 mt-1">Tânia - 10:27</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <input type="text" placeholder="Escreva a sua mensagem..." class="flex-grow border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                            <button id="sendMessageButton" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-r-lg transition duration-300">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                        
-                        <div class="mt-4 text-center">
-                            <p class="text-sm text-gray-600">Conecte-se com outros ouvintes e partilhe os seus pensamentos sobre a música e programas!</p>
-                        </div>
-                    </div>
+    <div class="bg-gray-800 rounded-xl p-4 shadow-lg h-full border border-gray-700">
+        <h3 class="text-xl font-bold text-purple-400 mb-3 flex items-center">
+            <i class="fas fa-comments mr-2"></i> Chat Ao Vivo
+            <span id="onlineCount" class="ml-auto text-sm text-gray-400">0 online</span>
+        </h3>
+        
+        <div id="chatMessages" class="mb-3 h-96 overflow-y-auto pr-2 custom-scrollbar">
+            <!-- Mensagens serão carregadas aqui via JavaScript -->
+        </div>
+        
+        <div class="flex items-center">
+            <input id="messageInput" type="text" placeholder="Escreva sua mensagem..." 
+                   class="flex-grow bg-gray-700 text-white border border-gray-600 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+            <button id="sendMessageButton" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-r-lg transition duration-300">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+        
+        <div class="mt-2 text-right">
+            <p class="text-xs text-gray-500">Pressione Enter para enviar</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #6b46c1;
+        border-radius: 3px;
+    }
+</style>
                 </div>
             </div>
             <script src="script.js/script.js"></script>
@@ -548,28 +533,28 @@
     </section>
 
     <!-- Events Section -->
-    <section id="events" class="py-16 bg-gray-50">
+    <section id="events" class="py-16 bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-purple-600 mb-2">Próximos Eventos</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Descubra os melhores eventos musicais e culturais em Angola.</p>
+                <p class="text-gray-400 max-w-2xl mx-auto">Descubra os melhores eventos musicais e culturais em Angola.</p>
                 <div class="w-20 h-1 bg-purple-600 mx-auto mt-4"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="event-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                <div class="event-card bg-gray-700 rounded-xl overflow-hidden shadow-md transition duration-300">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                              alt="Concerto do Paulo Flores" 
                              class="w-full h-48 object-cover">
-                        <div class="event-date absolute top-4 right-4 bg-white text-purple-600 font-bold text-center py-1 px-3 rounded-lg shadow-md transition duration-300">
+                        <div class="event-date absolute top-4 right-4 bg-gray-800 text-purple-600 font-bold text-center py-1 px-3 rounded-lg shadow-md transition duration-300">
                             <div class="text-xl">15</div>
                             <div class="text-xs">JUL</div>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Concerto do Paulo Flores</h3>
-                        <p class="text-gray-600 mb-4">O rei do semba moderno apresenta o seu novo álbum "Raiz" ao vivo no Cine Atlântico.</p>
+                        <h3 class="text-xl font-bold text-gray-200 mb-2">Concerto do Paulo Flores</h3>
+                        <p class="text-gray-400 mb-4">O rei do semba moderno apresenta o seu novo álbum "Raiz" ao vivo no Cine Atlântico.</p>
                         <div class="flex justify-between items-center">
                             <div class="flex items-center text-gray-500 text-sm">
                                 <i class="fas fa-map-marker-alt mr-1"></i> Luanda
@@ -581,19 +566,19 @@
                     </div>
                 </div>
                 
-                <div class="event-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                <div class="event-card bg-gray-700 rounded-xl overflow-hidden shadow-md transition duration-300">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1413&q=80" 
                              alt="Festival de Kizomba" 
                              class="w-full h-48 object-cover">
-                        <div class="event-date absolute top-4 right-4 bg-white text-purple-600 font-bold text-center py-1 px-3 rounded-lg shadow-md transition duration-300">
+                        <div class="event-date absolute top-4 right-4 bg-gray-800 text-purple-600 font-bold text-center py-1 px-3 rounded-lg shadow-md transition duration-300">
                             <div class="text-xl">22</div>
                             <div class="text-xs">JUL</div>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Festival de Kizomba</h3>
-                        <p class="text-gray-600 mb-4">Uma noite dedicada ao melhor da kizomba com Yuri da Cunha, Anselmo Ralph e mais.</p>
+                        <h3 class="text-xl font-bold text-gray-200 mb-2">Festival de Kizomba</h3>
+                        <p class="text-gray-400 mb-4">Uma noite dedicada ao melhor da kizomba com Yuri da Cunha, Anselmo Ralph e mais.</p>
                         <div class="flex justify-between items-center">
                             <div class="flex items-center text-gray-500 text-sm">
                                 <i class="fas fa-map-marker-alt mr-1"></i> Benguela
@@ -605,19 +590,19 @@
                     </div>
                 </div>
                 
-                <div class="event-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                <div class="event-card bg-gray-700 rounded-xl overflow-hidden shadow-md transition duration-300">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
                              alt="Noite de Semba" 
                              class="w-full h-48 object-cover">
-                        <div class="event-date absolute top-4 right-4 bg-white text-purple-600 font-bold text-center py-1 px-3 rounded-lg shadow-md transition duration-300">
+                        <div class="event-date absolute top-4 right-4 bg-gray-800 text-purple-600 font-bold text-center py-1 px-3 rounded-lg shadow-md transition duration-300">
                             <div class="text-xl">29</div>
                             <div class="text-xs">JUL</div>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Noite de Semba</h3>
-                        <p class="text-gray-600 mb-4">Celebrando os clássicos do semba angolano com gerações de músicos.</p>
+                        <h3 class="text-xl font-bold text-gray-200 mb-2">Noite de Semba</h3>
+                        <p class="text-gray-400 mb-4">Celebrando os clássicos do semba angolano com gerações de músicos.</p>
                         <div class="flex justify-between items-center">
                             <div class="flex items-center text-gray-500 text-sm">
                                 <i class="fas fa-map-marker-alt mr-1"></i> Huambo
@@ -631,8 +616,8 @@
             </div>
             
             <div class="mt-12">
-                <h3 class="text-xl font-bold text-gray-800 mb-6">Eventos Anteriores</h3>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <h3 class="text-xl font-bold text-gray-200 mb-6">Eventos Anteriores</h3>
+                <div class="bg-gray-700 rounded-lg shadow-md overflow-hidden">
                     <div class="grid grid-cols-12 bg-purple-600 text-white font-bold text-sm">
                         <div class="col-span-2 p-3">Data</div>
                         <div class="col-span-6 p-3">Evento</div>
@@ -640,7 +625,7 @@
                         <div class="col-span-2 p-3">Fotos</div>
                     </div>
                     
-                    <div class="grid grid-cols-12 border-b border-gray-200 hover:bg-purple-50">
+                    <div class="grid grid-cols-12 border-b border-gray-200 hover:bg-gray-600">
                         <div class="col-span-2 p-3">10 Jun 2023</div>
                         <div class="col-span-6 p-3">Festival da Música Angolana</div>
                         <div class="col-span-2 p-3">Luanda</div>
@@ -651,7 +636,7 @@
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-12 border-b border-gray-200 hover:bg-purple-50">
+                    <div class="grid grid-cols-12 border-b border-gray-200 hover:bg-gray-600">
                         <div class="col-span-2 p-3">27 Mai 2023</div>
                         <div class="col-span-6 p-3">Concerto de Bonga</div>
                         <div class="col-span-2 p-3">Lobito</div>
@@ -662,7 +647,7 @@
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-12 hover:bg-purple-50">
+                    <div class="grid grid-cols-12 hover:bg-gray-600">
                         <div class="col-span-2 p-3">13 Mai 2023</div>
                         <div class="col-span-6 p-3">Noite de Kizomba com Yuri da Cunha</div>
                         <div class="col-span-2 p-3">Benguela</div>
@@ -678,20 +663,20 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
+    <section id="about" class="py-16 bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-purple-600 mb-2">Sobre a RadioComercial</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">A sua voz, a nossa música - conectando Angola através da cultura e entretenimento.</p>
+                <p class="text-gray-400 max-w-2xl mx-auto">A sua voz, a nossa música - conectando Angola através da cultura e entretenimento.</p>
                 <div class="w-20 h-1 bg-purple-600 mx-auto mt-4"></div>
             </div>
             
             <div class="flex flex-col lg:flex-row items-center mb-16">
                 <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">A Nossa História</h3>
-                    <p class="text-gray-700 mb-4">Fundada em 2020, a RadioComercial rapidamente se tornou uma das vozes mais reconhecidas no panorama radiofónico angolano. Começámos como uma pequena estação local em Luanda, com o objectivo de trazer música de qualidade e conteúdos relevantes para a comunidade angolana.</p>
-                    <p class="text-gray-700 mb-4">Ao longo dos anos, crescemos para nos tornarmos uma referência nacional, conhecida pela nossa programação diversificada que inclui música, cultura, entretenimento e informação.</p>
-                    <p class="text-gray-700">Hoje, com estúdios em Luanda, Benguela e Huambo, alcançamos milhões de ouvintes em todo o país e na diáspora angolana.</p>
+                    <p class="text-gray-300 mb-4">Fundada em 2020, a RadioComercial rapidamente se tornou uma das vozes mais reconhecidas no panorama radiofónico angolano. Começámos como uma pequena estação local em Luanda, com o objectivo de trazer música de qualidade e conteúdos relevantes para a comunidade angolana.</p>
+                    <p class="text-gray-300 mb-4">Ao longo dos anos, crescemos para nos tornarmos uma referência nacional, conhecida pela nossa programação diversificada que inclui música, cultura, entretenimento e informação.</p>
+                    <p class="text-gray-300">Hoje, com estúdios em Luanda, Benguela e Huambo, alcançamos milhões de ouvintes em todo o país e na diáspora angolana.</p>
                 </div>
                 <div class="lg:w-1/2">
                     <img src="img/RadioComercial2.jpg" 
@@ -702,82 +687,110 @@
             
            <div class="text-center">
     <h3 class="text-2xl font-bold text-gray-800 mb-6">A Nossa Equipa</h3>
-    <p class="text-gray-700 max-w-3xl mx-auto mb-8">Por detrás da RadioComercial está uma equipa dedicada de profissionais apaixonados por música e comunicação. Dos apresentadores aos técnicos, todos partilhamos o mesmo compromisso: trazer o melhor da música e cultura angolana para os nossos ouvintes.</p>
+    <p class="text-gray-300 max-w-3xl mx-auto mb-8">Por detrás da RadioComercial está uma equipa dedicada de profissionais apaixonados por música e comunicação. Dos apresentadores aos técnicos, todos partilhamos o mesmo compromisso: trazer o melhor da música e cultura angolana para os nossos ouvintes.</p>
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="bg-white rounded-lg shadow-md p-6 text-center">
-            <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Foto de Ana Paula" class="w-full h-full object-cover">
-            </div>
-            <h4 class="font-bold text-lg text-gray-800 mb-1">Ana Paula</h4>
-            <p class="text-purple-600 text-sm mb-2">Apresentadora</p>
-            <p class="text-gray-600 text-sm">Voz do programa "Drive Time" e especialista em kizomba.</p>
-        </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <!-- Primeiro Membro -->
+    <div class="group relative h-64 rounded-lg overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Ana Paula" 
+             class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
         
-        <div class="bg-white rounded-lg shadow-md p-6 text-center">
-            <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Foto de Pinto Farias" class="w-full h-full object-cover">
-            </div>
-            <h4 class="font-bold text-lg text-gray-800 mb-1">Pinto Farias</h4>
-            <p class="text-purple-600 text-sm mb-2">DJ e Produtor</p>
-            <p class="text-gray-600 text-sm">Responsável pela "Manhã Musical" e pelos mixes especiais.</p>
-        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
         
-        <div class="bg-white rounded-lg shadow-md p-6 text-center">
-            <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Foto de Carlos Manuel" class="w-full h-full object-cover">
-            </div>
-            <h4 class="font-bold text-lg text-gray-800 mb-1">Carlos Manuel</h4>
-            <p class="text-purple-600 text-sm mb-2">Director de Programação</p>
-            <p class="text-gray-600 text-sm">O arquitecto por detrás da nossa programação diversificada.</p>
+        <div class="absolute bottom-0 left-0 right-0 p-5 text-center transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+            <h4 class="font-bold text-xl text-white mb-1">Ana Paula</h4>
+            <p class="text-purple-300 text-sm mb-2">Apresentadora</p>
+            <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Voz do programa "Drive Time" e especialista em kizomba.
+            </p>
         </div>
+    </div>
+
+    <!-- Segundo Membro -->
+    <div class="group relative h-64 rounded-lg overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Pinto Farias" 
+             class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
         
-        <div class="bg-white rounded-lg shadow-md p-6 text-center">
-            <div class="w-24 h-24 rounded-full bg-purple-100 mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="Foto de Maria Luísa" class="w-full h-full object-cover">
-            </div>
-            <h4 class="font-bold text-lg text-gray-800 mb-1">Maria Luísa</h4>
-            <p class="text-purple-600 text-sm mb-2">Repórter Cultural</p>
-            <p class="text-gray-600 text-sm">Leva-nos aos bastidores da cena cultural angolana.</p>
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-5 text-center transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+            <h4 class="font-bold text-xl text-white mb-1">Pinto Farias</h4>
+            <p class="text-purple-300 text-sm mb-2">DJ e Produtor</p>
+            <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Responsável pela "Manhã Musical" e pelos mixes especiais.
+            </p>
+        </div>
+    </div>
+
+    <!-- Terceiro Membro -->
+    <div class="group relative h-64 rounded-lg overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Carlos Manuel" 
+             class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-5 text-center transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+            <h4 class="font-bold text-xl text-white mb-1">Carlos Manuel</h4>
+            <p class="text-purple-300 text-sm mb-2">Director de Programação</p>
+            <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                O arquitecto por detrás da nossa programação diversificada.
+            </p>
+        </div>
+    </div>
+
+    <!-- Quarto Membro -->
+    <div class="group relative h-64 rounded-lg overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="Maria Luísa" 
+             class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-5 text-center transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+            <h4 class="font-bold text-xl text-white mb-1">Maria Luísa</h4>
+            <p class="text-purple-300 text-sm mb-2">Repórter Cultural</p>
+            <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Leva-nos aos bastidores da cena cultural angolana.
+            </p>
         </div>
     </div>
 </div>
+ </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50">
+    <section id="contact" class="py-16 bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-purple-600 mb-2">Contacte-nos</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Tem perguntas, sugestões ou quer trabalhar connosco? Estamos aqui para ajudar.</p>
+                <p class="text-gray-400 max-w-2xl mx-auto">Tem perguntas, sugestões ou quer trabalhar connosco? Estamos aqui para ajudar.</p>
                 <div class="w-20 h-1 bg-purple-600 mx-auto mt-4"></div>
             </div>
             
             <div class="flex flex-col lg:flex-row gap-8">
                 <div class="lg:w-1/2">
-                    <div class="bg-white rounded-xl p-8 shadow-lg">
-                        <h3 class="text-xl font-bold text-gray-800 mb-6">Envie-nos uma Mensagem</h3>
+                    <div class="bg-gray-700 rounded-xl p-8 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-200 mb-6">Envie-nos uma Mensagem</h3>
                         
                         <form>
                             <div class="mb-4">
-                                <label for="name" class="block text-gray-700 font-medium mb-2">Nome Completo</label>
-                                <input type="text" id="name" class="form-input w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="O seu nome">
+                                <label for="name" class="block text-gray-300 font-medium mb-2">Nome Completo</label>
+                                <input type="text" id="name" class="form-input w-full border border-gray-500 rounded-lg px-4 py-2 bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="O seu nome">
                             </div>
                             
                             <div class="mb-4">
-                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                                <input type="email" id="email" class="form-input w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="O seu email">
+                                <label for="email" class="block text-gray-300 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="form-input w-full border border-gray-500 rounded-lg px-4 py-2 bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="O seu email">
                             </div>
                             
                             <div class="mb-4">
-                                <label for="phone" class="block text-gray-700 font-medium mb-2">Telefone (Opcional)</label>
-                                <input type="tel" id="phone" class="form-input w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="O seu número">
+                                <label for="phone" class="block text-gray-300 font-medium mb-2">Telefone (Opcional)</label>
+                                <input type="tel" id="phone" class="form-input w-full border border-gray-500 rounded-lg px-4 py-2 bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="O seu número">
                             </div>
                             
                             <div class="mb-4">
-                                <label for="subject" class="block text-gray-700 font-medium mb-2">Assunto</label>
-                                <select id="subject" class="form-input w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <label for="subject" class="block text-gray-300 font-medium mb-2">Assunto</label>
+                                <select id="subject" class="form-input w-full border border-gray-500 rounded-lg px-4 py-2 bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                                     <option value="">Selecione um assunto</option>
                                     <option value="programming">Sugestão de Programa</option>
                                     <option value="music">Submissão de Música</option>
@@ -788,8 +801,8 @@
                             </div>
                             
                             <div class="mb-6">
-                                <label for="message" class="block text-gray-700 font-medium mb-2">Mensagem</label>
-                                <textarea id="message" rows="5" class="form-input w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="A sua mensagem"></textarea>
+                                <label for="message" class="block text-gray-300 font-medium mb-2">Mensagem</label>
+                                <textarea id="message" rows="5" class="form-input w-full border border-gray-500 rounded-lg px-4 py-2 bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="A sua mensagem"></textarea>
                             </div>
                             
                             <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-bold w-full transition duration-300">
@@ -800,8 +813,8 @@
                 </div>
                 
                 <div class="lg:w-1/2">
-                    <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
-                        <h3 class="text-xl font-bold text-gray-800 mb-6">Informações de Contacto</h3>
+                    <div class="bg-gray-700 rounded-xl p-8 shadow-lg mb-8">
+                        <h3 class="text-xl font-bold text-gray-200 mb-6">Informações de Contacto</h3>
                         
                         <div class="space-y-6">
                             <div class="flex items-start">
@@ -809,8 +822,8 @@
                                     <i class="fas fa-map-marker-alt text-purple-600"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800">Estúdio Principal</h4>
-                                    <p class="text-gray-600">Benfica - Patriota<br>Luanda, Angola</p>
+                                    <h4 class="font-bold text-gray-200">Estúdio Principal</h4>
+                                    <p class="text-gray-400">Benfica - Patriota<br>Luanda, Angola</p>
                                 </div>
                             </div>
                             
@@ -819,8 +832,8 @@
                                     <i class="fas fa-phone-alt text-purple-600"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800">Telefone</h4>
-                                    <p class="text-gray-600">+244 941 156 269<br>Segunda a Sexta, 8h-20h</p>
+                                    <h4 class="font-bold text-gray-200">Telefone</h4>
+                                    <p class="text-gray-400">+244 941 156 269<br>Segunda a Sexta, 8h-20h</p>
                                 </div>
                             </div>
                             
@@ -829,15 +842,15 @@
                                     <i class="fas fa-envelope text-purple-600"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800">Email</h4>
-                                    <p class="text-gray-600">radiocomercial2020@gmail.com<br>programacao@radiocomercial.ao</p>
+                                    <h4 class="font-bold text-gray-200">Email</h4>
+                                    <p class="text-gray-400">radiocomercial2020@gmail.com<br>programacao@radiocomercial.ao</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="bg-white rounded-xl p-8 shadow-lg">
-                        <h3 class="text-xl font-bold text-gray-800 mb-6">Siga-nos</h3>
+                    <div class="bg-gray-700 rounded-xl p-8 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-200 mb-6">Siga-nos</h3>
                         
                         <div class="flex justify-center space-x-6 mb-6">
                             <a href="#" class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white transition duration-300">
@@ -857,11 +870,11 @@
                             </a>
                         </div>
                         
-                        <div class="bg-gray-100 rounded-lg p-4">
-                            <h4 class="font-bold text-gray-800 mb-2">Assine a nossa newsletter</h4>
-                            <p class="text-gray-600 text-sm mb-3">Receba as últimas novidades, playlists e eventos directamente no seu email.</p>
+                        <div class="bg-gray-700 rounded-lg p-4">
+                            <h4 class="font-bold text-gray-200 mb-2">Assine a nossa newsletter</h4>
+                            <p class="text-gray-400 text-sm mb-3">Receba as últimas novidades, playlists e eventos directamente no seu email.</p>
                             <div class="flex">
-                                <input type="email" placeholder="O seu email" class="flex-grow border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <input type="email" placeholder="O seu email" class="flex-grow border border-gray-500 rounded-l-lg px-4 py-2 bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                                 <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-r-lg transition duration-300">
                                     <i class="fas fa-paper-plane"></i>
                                 </button>
