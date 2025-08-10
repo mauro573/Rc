@@ -9,9 +9,11 @@
     <script src="script.js/chat.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="stylee/style.css">
-    <!-- Firebase (versão compatível) -->
-<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+    
+<!-- Adicione no <head> -->
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js" defer></script>
+
 </head>
 <body class="bg-gray-900 text-gray-100">
 
@@ -134,21 +136,29 @@
             
             <div class="flex flex-col lg:flex-row items-center bg-gray-700 rounded-xl overflow-hidden shadow-lg">
                 <div class="lg:w-1/3">
-                    <img src="img/bonga1.jpg" 
+                    <img src="img/22222.275Z.png" 
                          alt="Bonga" 
                          class="w-full h-full object-cover">
                 </div>
                 <div class="lg:w-2/3 p-8">
-                    <h3 class="text-2xl font-bold text-purple-600 mb-4">Bonga</h3>
-                    <p class="text-gray-300 mb-4">José Adelino Barceló de Carvalho, conhecido artisticamente como Bonga, é um cantor e compositor angolano. Nascido em 1943, Bonga é uma das vozes mais reconhecidas da música africana, tendo levado o semba e outros ritmos angolanos para o mundo.</p>
-                    <p class="text-gray-300 mb-6">Com mais de 30 álbuns lançados, Bonga é conhecido por canções como "Mona Ki Ngi Xica", "Sodade", e "Angola". Sua música é uma mistura de ritmos tradicionais angolanos com influências portuguesas e brasileiras, criando um som único que fala da experiência angolana.</p>
+                    <h3 class="text-2xl font-bold text-purple-600 mb-4">Pharrell Williams</h3>
+                    <p class="text-gray-300 mb-4">Pharrell Lanscilo Williams, nascido em 5 de abril de 1973, em Virginia Beach, Virgínia,
+                         é um músico, cantor, rapper, produtor musical, estilista e empresário americano. Ele é 
+                         conhecido por formar a dupla de produção The Neptunes com Chad Hugo, e também por ser 
+                         vocalista e baterista da banda N.E.R.D. Williams também teve uma carreira solo de sucesso,
+                         com álbuns como "In My Mind" e "G I R L", e o hit global "Happy". Além disso, ele é co-criador 
+                         das marcas de roupa Billionaire Boys Club e Ice Cream Clothing, e diretor criativo da linha masculina 
+                         da Louis Vuitton desde 2023. <br>
+                    
                     <div class="flex flex-wrap gap-4">
                         <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full flex items-center transition duration-300">
                            
                            <i class="fas fa-play mr-2"></i> Ouvir Músicas
                         </button>
                         <button class="border border-purple-600 text-purple-600 hover:bg-purple-50 px-4 py-2 rounded-full flex items-center transition duration-300">
-                            <i class="fas fa-book mr-2"></i> Biografia Completa
+                            
+                            <a href="https://www.instagram.com/pharrell?utm_source=ig_web_button_share_sheet&igsh=MWJzMWs5N2tpdDZkaQ==">
+                                <i class="fas fa-book mr-2"></i> Perfil</a>
                         </button>
                         <button class="border border-purple-600 text-purple-600 hover:bg-purple-50 px-4 py-2 rounded-full flex items-center transition duration-300">
                             <i class="fas fa-share-alt mr-2"></i> Partilhar
@@ -161,62 +171,145 @@
     <h3 class="text-2xl font-bold text-gray-100 mb-8">Notícias</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <!-- Notícia 1 -->
-        <div class="group relative h-72 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
-            <img src="img/noticia1.jpg" alt="Ameaça de Bomba" 
-                 class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
-            
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent"></div>
-            
-            <div class="absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                <span class="inline-block px-3 py-1 mb-2 text-xs font-semibold text-purple-300 bg-gray-800/80 rounded-full">
-                    Última Hora
-                </span>
-                <h4 class="font-bold text-xl text-white mb-2">Ameaça de Bomba</h4>
-                <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    Ameaça de bomba obriga aterragem de emergência no aeroporto de Lisboa
-                </p>
-            </div>
+
+        <div class="video-container group relative h-72 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 cursor-pointer">
+    <!-- Vídeo sem controles nativos e sem áudio -->
+    <video loop src="img/noticia1.mp4" class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
+    </video>
+    
+    <!-- Ícone de play/pause centralizado que desaparece durante a reprodução -->
+    <div class="play-control absolute inset-0 flex items-center justify-center opacity-100 transition-opacity duration-300">
+        <div class="play-pause-btn w-16 h-16 bg-black/50 rounded-full flex items-center justify-center text-white backdrop-blur-sm">
+            <svg class="play-icon w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+            </svg>
+            <svg class="pause-icon w-8 h-8 hidden" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 19H10V5H6V19ZM14 5V19H18V5H14Z" fill="currentColor"/>
+            </svg>
         </div>
+    </div>
+    
+    <!-- Texto sobreposto -->
+    <div class="video-caption absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent transition-opacity duration-300">
+        <h3 class="text-white font-semibold text-lg">Super Bowl</h3>
+        <p class="text-white/80 text-sm">performance de kendrick Lamar no super bowl 2025 contou com a participação especial da repper (R&B) star SZA.</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const videoContainers = document.querySelectorAll('.video-container');
+    
+    videoContainers.forEach(container => {
+        const video = container.querySelector('video');
+        const playControl = container.querySelector('.play-control');
+        const playIcon = container.querySelector('.play-icon');
+        const pauseIcon = container.querySelector('.pause-icon');
+        const caption = container.querySelector('.video-caption');
+        
+        // Controle de clique no vídeo
+        container.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                playControl.classList.add('opacity-0', 'pointer-events-none');
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+                caption.classList.add('opacity-0');
+            } else {
+                video.pause();
+                playControl.classList.remove('opacity-0', 'pointer-events-none');
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                caption.classList.remove('opacity-0');
+            }
+        });
+        
+        // Esconde controles durante a reprodução
+        video.addEventListener('play', function() {
+            playControl.classList.add('opacity-0', 'pointer-events-none');
+            caption.classList.add('opacity-0');
+        });
+        
+        // Mostra controles quando pausado
+        video.addEventListener('pause', function() {
+            playControl.classList.remove('opacity-0', 'pointer-events-none');
+            caption.classList.remove('opacity-0');
+        });
+        
+        // Mostra controles quando o vídeo terminar
+        video.addEventListener('ended', function() {
+            playControl.classList.remove('opacity-0', 'pointer-events-none');
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+            caption.classList.remove('opacity-0');
+        });
+        
+        // Opcional: Mostrar controles ao passar o mouse (se desejar)
+        container.addEventListener('mouseenter', function() {
+            if (!video.paused) {
+                playControl.classList.remove('opacity-0', 'pointer-events-none');
+                setTimeout(() => {
+                    if (!video.paused) {
+                        playControl.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                }, 2000);
+            }
+        });
+    });
+});
+</script>
         
         <!-- Notícia 2 -->
         <div class="group relative h-72 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
-            <img src="img/noticia6.jpg" alt="Malária" 
+            <img src="img/noticia2.jpg" alt="trafego de Internet" 
                  class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
             
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent"></div>
             
             <div class="absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
                 <span class="inline-block px-3 py-1 mb-2 text-xs font-semibold text-purple-300 bg-gray-800/80 rounded-full">
-                    Saúde
+                    Tecnologia
                 </span>
-                <h4 class="font-bold text-xl text-white mb-2">Malária</h4>
+                <h4 class="font-bold text-xl text-white mb-2">Tráfego de Internet</h4>
                 <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    Timor-Leste elimina malária após anos de luta
+                    Os dois principais pontos de troca de tráfego de Internet (IXPs) e IXP, registaram picos sem precedentes
+                     no final do mês de Julho, alcançando volumes combinados próximos dos 70 Gbps.
+
                 </p>
             </div>
         </div>
         
         <!-- Notícia 3 -->
-        <div class="group relative h-72 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
-            <img src="img/noticia5.jpg" alt="João Lourenço" 
-                 class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
-            
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent"></div>
-            
-            <div class="absolute bottom-0 left-0 right-0 p-5 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                <span class="inline-block px-3 py-1 mb-2 text-xs font-semibold text-purple-300 bg-gray-800/80 rounded-full">
-                    Política
-                </span>
-                <h4 class="font-bold text-xl text-white mb-2">João Lourenço</h4>
-                <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    João Lourenço diz que ficará com remorsos se seu sucessor não fizer igual ou melhor que ele
-                </p>
-            </div>
+       <div class="video-container group relative h-72 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 cursor-pointer">
+    <!-- Vídeo sem controles nativos e sem áudio -->
+    <video loop src="img/noticia3.mp4" class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
+    </video>
+    
+    <!-- Ícone de play/pause centralizado que desaparece durante a reprodução -->
+    <div class="play-control absolute inset-0 flex items-center justify-center opacity-100 transition-opacity duration-300">
+        <div class="play-pause-btn w-16 h-16 bg-black/50 rounded-full flex items-center justify-center text-white backdrop-blur-sm">
+            <svg class="play-icon w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+            </svg>
+            <svg class="pause-icon w-8 h-8 hidden" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 19H10V5H6V19ZM14 5V19H18V5H14Z" fill="currentColor"/>
+            </svg>
         </div>
+    </div>
+    
+    <!-- Texto sobreposto -->
+    <div class="video-caption absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent transition-opacity duration-300">
+        <h3 class="text-white font-semibold text-lg">Caixa Fado</h3>
+        <p class="text-white/80 text-sm">5º Edição do festival Caixa Fado em Luanda
+            Angola e Portugal num só espaço para um concerto musical.</p>
+    </div>
+</div>
+
+
         
         <!-- Notícia 4 -->
         <div class="group relative h-72 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
-            <img src="img/noticia3.jpg" alt="ANATA" 
+            <img src="img/noticia4.jpg" alt="Cultura" 
                  class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
             
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent"></div>
@@ -225,9 +318,10 @@
                 <span class="inline-block px-3 py-1 mb-2 text-xs font-semibold text-purple-300 bg-gray-800/80 rounded-full">
                     Transportes
                 </span>
-                <h4 class="font-bold text-xl text-white mb-2">ANATA</h4>
+                <h4 class="font-bold text-xl text-white mb-2">SENADIAC</h4>
                 <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    ANATA esclarece que não cancelou greve dos taxistas
+                    O Ministério da Cultura realizou nesta terça-feira, 17 de julho 
+                    sob o lema “Direito de Autor e Comunicação Social 
                 </p>
             </div>
         </div>
@@ -260,7 +354,7 @@
                     <p class="text-gray-400 mb-4">Explorando a riqueza musical angolana, desde o semba tradicional até os novos sons urbanos.</p>
                     <div class="flex justify-between items-center">
                         <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300"  onclick="openVideoModal('img/podcast1.mp4')">
-                            <i class="fas fa-play mr-2"></i> Ouvir Agora
+                            <i class="fas fa-play mr-2"></i> Ver Agora
                         </button>
                         <div class="flex space-x-2">
                             <button class="text-gray-400 hover:text-purple-600">
@@ -288,7 +382,7 @@
                     <p class="text-gray-400 mb-4">Conversas com artistas, escritores e criadores que estão a moldar a cena cultural angolana.</p>
                     <div class="flex justify-between items-center">
                         <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300"onclick="openVideoModal('img/podcast2.mp4')" >
-                            <i class="fas fa-play mr-2"></i> Ouvir Agora
+                            <i class="fas fa-play mr-2"></i> Ver Agora
                         </button>
                         <div class="flex space-x-2">
                             <button class="text-gray-400 hover:text-purple-600">
@@ -316,7 +410,7 @@
                     <p class="text-gray-400 mb-4">Conversas íntimas com as personalidades mais interessantes de Angola, da música ao desporto.</p>
                     <div class="flex justify-between items-center">
                         <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm flex items-center transition duration-300"onclick="openVideoModal('videos/studio_aberto.mp4')">
-                            <i class="fas fa-play mr-2"></i> Ouvir Agora
+                            <i class="fas fa-play mr-2"></i> Ver Agora
                         </button>
                         <div class="flex space-x-2">
                             <button class="text-gray-400 hover:text-purple-600">
@@ -355,6 +449,7 @@
             </div>
         </div>
     </div>
+    
 </section>
 
 <script>
@@ -692,14 +787,16 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
     <!-- Primeiro Membro -->
     <div class="group relative h-64 rounded-lg overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Ana Paula" 
+        <img src="img/ernesto-jaime.jpg" alt="Ernesto Jaime" 
              class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
         
         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
         
         <div class="absolute bottom-0 left-0 right-0 p-5 text-center transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-            <h4 class="font-bold text-xl text-white mb-1">Ana Paula</h4>
-            <p class="text-purple-300 text-sm mb-2">Apresentadora</p>
+             <a href="https://www.instagram.com/ernestojaime89/">
+            <h4 class="font-bold text-xl text-white mb-1">Ernesto Jaime</h4>
+            <p class="text-purple-300 text-sm mb-2"> Redator Rádio Comercial</p>
+            </a>
             <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 Voz do programa "Drive Time" e especialista em kizomba.
             </p>
@@ -708,14 +805,16 @@
 
     <!-- Segundo Membro -->
     <div class="group relative h-64 rounded-lg overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl">
-        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Pinto Farias" 
+        <img src="img/pinto.jpg" alt="Pinto Farias" 
              class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
         
         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
         
         <div class="absolute bottom-0 left-0 right-0 p-5 text-center transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+             <a href="https://www.instagram.com/pintofariacggmail.c/">
             <h4 class="font-bold text-xl text-white mb-1">Pinto Farias</h4>
-            <p class="text-purple-300 text-sm mb-2">DJ e Produtor</p>
+            <p class="text-purple-300 text-sm mb-2">Mentor do Projeto Rádio Comercial</p>
+            </a>
             <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 Responsável pela "Manhã Musical" e pelos mixes especiais.
             </p>
@@ -724,14 +823,16 @@
 
     <!-- Terceiro Membro -->
     <div class="group relative h-64 rounded-lg overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Carlos Manuel" 
+        <img src="img/moises.jpg" alt="Moisés Domingos" 
              class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
         
         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
         
         <div class="absolute bottom-0 left-0 right-0 p-5 text-center transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-            <h4 class="font-bold text-xl text-white mb-1">Carlos Manuel</h4>
-            <p class="text-purple-300 text-sm mb-2">Director de Programação</p>
+             <a href="https://www.instagram.com/mauro_domingos27/">
+            <h4 class="font-bold text-xl text-white mb-1">Moisés Domingos</h4>
+            <p class="text-purple-300 text-sm mb-2">Programador Web</p>
+            </a>
             <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 O arquitecto por detrás da nossa programação diversificada.
             </p>
@@ -740,14 +841,16 @@
 
     <!-- Quarto Membro -->
     <div class="group relative h-64 rounded-lg overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="Maria Luísa" 
+        <img src="img/hony.jpg" alt="Hony Samuel" 
              class="absolute inset-0 w-full h-full object-cover brightness-90 group-hover:brightness-75 transition-all duration-500">
         
         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
         
         <div class="absolute bottom-0 left-0 right-0 p-5 text-center transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-            <h4 class="font-bold text-xl text-white mb-1">Maria Luísa</h4>
-            <p class="text-purple-300 text-sm mb-2">Repórter Cultural</p>
+             <a href="https://www.instagram.com/honydasilva/">
+            <h4 class="font-bold text-xl text-white mb-1">Hony Samuel</h4>
+            <p class="text-purple-300 text-sm mb-2">Engenheiro Informático Rádio Comercial</p>
+            </a>
             <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 Leva-nos aos bastidores da cena cultural angolana.
             </p>
@@ -829,7 +932,9 @@
                             
                             <div class="flex items-start">
                                 <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                                    <a href="tel:+244941156269">
                                     <i class="fas fa-phone-alt text-purple-600"></i>
+                                    </a>
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-200">Telefone</h4>
@@ -839,7 +944,9 @@
                             
                             <div class="flex items-start">
                                 <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                                   <a href="mailto:radiocomercial2020@gmail.com">
                                     <i class="fas fa-envelope text-purple-600"></i>
+                                    </a>
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-200">Email</h4>
@@ -859,7 +966,7 @@
                             <a href="#" class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white transition duration-300">
                                 <i class="fab fa-twitter text-xl"></i>
                             </a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white transition duration-300">
+                            <a href="https://www.instagram.com/radio_comercial/" class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white transition duration-300">
                                 <i class="fab fa-instagram text-xl"></i>
                             </a>
                             <a href="#" class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white transition duration-300">
@@ -916,7 +1023,7 @@
                         <li class="flex items-start">
                             <a href="tel:+244941156269">
                             <i class="fas fa-phone-alt mt-1 mr-2"></i>
-                            <span>+244 923 456 789</span>
+                            <span>+244 941 156 269</span>
                             </a>
                         </li>
                         <li class="flex items-start">
