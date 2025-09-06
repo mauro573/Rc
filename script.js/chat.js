@@ -1,145 +1,160 @@
-// Configuração do Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyDCu4j5u8vw2c6zq60xDwngf5XQcapZTok",
-  authDomain: "radiocomercial-chat.firebaseapp.com",
-  databaseURL: "https://radiocomercial-chat-default-rtdb.firebaseio.com",
-  projectId: "radiocomercial-chat",
-  storageBucket: "radiocomercial-chat.app", // Corrigido
-  messagingSenderId: "8299224791",
-  appId: "1:8299224791:web:08593f76b48da95cacda92"
-};
 
-// Inicialização do Firebase
-let database;
-try {
-  firebase.initializeApp(firebaseConfig);
-  database = firebase.database();
-  console.log("Firebase conectado com sucesso!");
-} catch (error) {
-  console.error("Erro ao conectar ao Firebase:", error);
-}
+    
+    
+"https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"
+"https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"
 
-// Elementos do HTML
-const messageInput = document.getElementById('messageInput');
-const sendButton = document.getElementById('sendMessageButton');
-const chatContainer = document.getElementById('chatMessages');
-const onlineCount = document.getElementById('onlineCount');
 
-// Sistema de usuário
-let username = localStorage.getItem('radioChatUsername') || 'Anônimo';
-if (!localStorage.getItem('radioChatUsername')) {
-  username = prompt("Qual seu nome ou apelido?", "Ouvinte") || username;
-  localStorage.setItem('radioChatUsername', username);
-}
+    // Suas configurações do Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyDCu4j5u8vw2c6zq60xDwngf5XQcapZTok",
+        authDomain: "radiocomercial-chat.firebaseapp.com",
+        databaseURL: "https://radiocomercial-chat-default-rtdb.firebaseio.com",
+        projectId: "radiocomercial-chat",
+        storageBucket: "radiocomercial-chat.firebasestorage.app",
+        messagingSenderId: "8299224791",
+        appId: "1:8299224791:web:08593f76b48da95cacda92",
+        measurementId: "G-7WTQDH990J"
+    };
 
-// Gerar ID único se não existir
-if (!localStorage.getItem('radioChatUserId')) {
-  localStorage.setItem('radioChatUserId', 'user_' + Math.random().toString(36).substr(2, 9));
-}
+    // Inicializar Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+    
+    // O resto do código permanece igual ao que mostrei anteriormente
+    // [Insira aqui o código completo que mostrei na resposta anterior]
 
-// Enviar mensagem
-function sendMessage() {
-  if (!database) {
-    console.error("Banco de dados não está conectado!");
-    alert("Erro de conexão. Recarregue a página.");
-    return;
-  }
-
-  const message = messageInput.value.trim();
-  if (!message) return;
-
-  sendButton.disabled = true;
-  
-  database.ref('messages').push({
-    text: message,
-    user: username,
-    userId: localStorage.getItem('radioChatUserId'),
-    timestamp: firebase.database.ServerValue.TIMESTAMP
-  })
-  .then(() => {
-    messageInput.value = '';
-  })
-  .catch((error) => {
-    console.error("Erro ao enviar:", error);
-    alert("Erro ao enviar mensagem. Tente novamente.");
-  })
-  .finally(() => {
-    sendButton.disabled = false;
-  });
-}
-
-// Exibir mensagens
-function displayMessage(message) {
-  if (!message || !chatContainer) return;
-
- // Dentro de displayMessage():
-const messageElement = document.createElement('div');
-messageElement.className = `chat-message mb-3 ${isCurrentUser ? 'ml-auto' : ''}`;
-messageElement.innerHTML = `
-  <div class="flex items-start ${isCurrentUser ? 'flex-row-reverse' : ''}">
-    <div class="w-8 h-8 rounded-full ${isCurrentUser ? 'bg-purple-600' : 'bg-gray-600'} flex items-center justify-center mr-2">
-      <i class="fas fa-user text-white text-sm"></i>
-    </div>
-    <div class="${isCurrentUser ? 'bg-purple-600' : 'bg-gray-700'} p-3 rounded-lg max-w-xs">
-      ${!isCurrentUser ? `<p class="text-xs text-purple-300 font-semibold">${message.user}</p>` : ''}
-      <p class="text-sm ${isCurrentUser ? 'text-white' : 'text-gray-200'}">${message.text}</p>
-      <p class="text-xs ${isCurrentUser ? 'text-purple-200' : 'text-gray-500'} mt-1">
-        ${timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-        ${isCurrentUser ? '<span class="text-purple-300">(Você)</span>' : ''}
-      </p>
-    </div>
-  </div>
-`;
-
-// Dentro do evento de carregamento inicial:
-if (database) {
-  chatContainer.innerHTML = `
-    <div class="text-center text-gray-500 py-10">
-      <i class="fas fa-comment-slash text-2xl mb-2"></i>
-      <p>Nenhuma mensagem ainda. Seja o primeiro a comentar!</p>
-    </div>
-  `;
-
-  database.ref('messages').limitToLast(50).on('child_added', (snapshot) => {
-    if (chatContainer.children.length === 1 && chatContainer.children[0].classList.contains('text-gray-500')) {
-      chatContainer.innerHTML = '';
+    
+    
+ 
+    
+    // Referências para os elementos do DOM
+    const messageInput = document.getElementById('messageInput');
+    const sendMessageButton = document.getElementById('sendMessageButton');
+    const chatMessages = document.getElementById('chatMessages');
+    const onlineCount = document.getElementById('onlineCount');
+    
+    // Referência para a coleção de mensagens no Firebase
+    const messagesRef = database.ref('messages');
+    
+    // Referência para contagem de usuários online
+    const usersOnlineRef = database.ref('users_online');
+    
+    // Gerar um ID único para o usuário
+    const userId = Math.random().toString(36).substring(2) + Date.now().toString(36);
+    
+    // Função para formatar a data/hora
+    function formatDateTime(timestamp) {
+        const date = new Date(timestamp);
+        return date.toLocaleTimeString('pt-BR', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
     }
-    displayMessage(snapshot.val());
-  });
-}
-
-  chatContainer.appendChild(messageElement);
-  chatContainer.scrollTop = chatContainer.scrollHeight;
-}
-
-// Monitorar mensagens e usuários online
-if (database) {
-  // Limpar chat ao carregar
-  chatContainer.innerHTML = '';
-
-  // Carregar mensagens
-  database.ref('messages').limitToLast(50).on('child_added', (snapshot) => {
-    displayMessage(snapshot.val());
-  });
-
-  // Contador de online
-  const userRef = database.ref('online/' + localStorage.getItem('radioChatUserId'));
-  userRef.set(true);
-  userRef.onDisconnect().remove();
-
-  database.ref('online').on('value', (snapshot) => {
-    if (onlineCount) {
-      onlineCount.textContent = snapshot.numChildren();
+    
+    // Adicionar usuário online
+    function addUserOnline() {
+        const userRef = usersOnlineRef.child(userId);
+        userRef.set({
+            online: true,
+            last_active: firebase.database.ServerValue.TIMESTAMP
+        });
+        
+        // Remover usuário quando desconectar
+        userRef.onDisconnect().remove();
     }
-  });
-}
-
-// Event listeners
-if (sendButton && messageInput) {
-  sendButton.addEventListener('click', sendMessage);
-  messageInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendMessage();
-  });
-} else {
-  console.error("Elementos do chat não encontrados!");
-}
+    
+    // Monitorar contagem de usuários online
+    function monitorOnlineUsers() {
+        usersOnlineRef.on('value', (snapshot) => {
+            const count = snapshot.numChildren();
+            onlineCount.textContent = `${count} online`;
+        });
+    }
+    
+    // Enviar mensagem
+    function sendMessage() {
+        const messageText = messageInput.value.trim();
+        
+        if (messageText) {
+            // Adicionar mensagem ao Firebase
+            messagesRef.push({
+                text: messageText,
+                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                userId: userId
+            })
+            .then(() => {
+                // Limpar input após envio
+                messageInput.value = '';
+            })
+            .catch((error) => {
+                console.error("Erro ao enviar mensagem: ", error);
+                alert("Erro ao enviar mensagem. Tente novamente.");
+            });
+        }
+    }
+    
+    // Carregar mensagens
+    function loadMessages() {
+        messagesRef.orderByChild('timestamp').limitToLast(100).on('value', (snapshot) => {
+            const messages = snapshot.val();
+            chatMessages.innerHTML = '';
+            
+            if (messages) {
+                // Converter objeto em array
+                const messagesArray = Object.entries(messages).map(([key, value]) => ({ 
+                    id: key, 
+                    ...value 
+                }));
+                
+                // Ordenar por timestamp (mais antigas primeiro)
+                messagesArray.sort((a, b) => a.timestamp - b.timestamp);
+                
+                messagesArray.forEach(message => {
+                    const messageElement = document.createElement('div');
+                    messageElement.classList.add('message', 'mb-3');
+                    
+                    const time = formatDateTime(message.timestamp);
+                    
+                    messageElement.innerHTML = `
+                        <div class="flex items-start">
+                            <div class="bg-gray-700 rounded-lg p-3 max-w-xs">
+                                <p class="text-sm text-white">${message.text}</p>
+                                <p class="text-xs text-gray-400 mt-1">${time}</p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    chatMessages.appendChild(messageElement);
+                });
+                
+                // Rolagem automática para a última mensagem
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            } else {
+                chatMessages.innerHTML = `
+                    <div class="text-center text-gray-500 py-4">
+                        Nenhuma mensagem ainda. Seja o primeiro a enviar uma mensagem!
+                    </div>
+                `;
+            }
+        });
+    }
+    
+    // Event listeners
+    sendMessageButton.addEventListener('click', sendMessage);
+    
+    messageInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+    
+    // Inicializar o chat
+    function initChat() {
+        addUserOnline();
+        monitorOnlineUsers();
+        loadMessages();
+    }
+    
+    // Iniciar quando a página carregar
+    window.addEventListener('DOMContentLoaded', initChat);
